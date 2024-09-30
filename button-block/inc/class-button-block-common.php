@@ -12,6 +12,7 @@ class Button_Common{
 		add_action( 'manage_button-block_posts_custom_column', [$this, 'manageBTNBlockPostsCustomColumns'], 10, 2 );
     add_shortcode( 'btn_block', [$this, 'onBtnBlockAddShortcode'] );
     add_action('wp_ajax_custom_get_user_roles', array($this, 'btn_custom_get_user_roles_callback'));
+    add_action( 'admin_init', array($this, 'add_option_in_general_settings') );
 	}
 
   function adminEnqueueScripts( $hook ) {
@@ -41,7 +42,8 @@ class Button_Common{
   function btn_pro_post_type()
 {
     $menuIcon = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 48 48' fill='#fff'><path d='M7 34Q5.75 34 4.875 33.125Q4 32.25 4 31V17Q4 15.75 4.875 14.875Q5.75 14 7 14H41Q42.25 14 43.125 14.875Q44 15.75 44 17V31Q44 32.25 43.125 33.125Q42.25 34 41 34H37.8V31H41Q41 31 41 31Q41 31 41 31V17Q41 17 41 17Q41 17 41 17H7Q7 17 7 17Q7 17 7 17V31Q7 31 7 31Q7 31 7 31H20.2V34ZM29 38 27.2 34 23.2 32.2 27.2 30.4 29 26.4 30.8 30.4 34.8 32.2 30.8 34ZM34 27.4 32.95 25.05 30.6 24 32.95 22.95 34 20.6 35.05 22.95 37.4 24 35.05 25.05Z'></path></svg>";
-
+    $hide_form_menu = get_option( 'button_block_option', 'false' );
+    $show_ui = ($hide_form_menu === 'true') ? false : true;
     register_post_type(
         'button-block',
         array(
@@ -57,11 +59,11 @@ class Button_Common{
                 'not_found' => __('Sorry, we couldn\'t find any item you are looking for.')
             ),
             'public' => false,
-            'show_ui' => true,
+            'show_ui' => $show_ui ,
             'publicly_queryable' => false,
             'exclude_from_search' => false,
             'show_in_rest'			=> true,
-            'menu_position' => 14,
+            'menu_position' => 58,
             'menu_icon' => 'data:image/svg+xml;base64,' . base64_encode($menuIcon),	
            	'has_archive'			=> false,
 			'hierarchical'			=> false,
@@ -136,6 +138,7 @@ function helpPage(){ ?>
 	}
 
   function onBtnBlockAddShortcode( $atts ) {
+    
 		$post_id = $atts['id'];
 
 		$post = get_post( $post_id );
@@ -155,6 +158,83 @@ function helpPage(){ ?>
 
       wp_send_json_success($roles);
   }
+ function add_option_in_general_settings(){
+        register_setting(
+        'general',    
+        'button_block_option', 
+        'sanitize_text_field' 
+    );
+
+    add_settings_field(
+        'button_block_option_field', 
+        'Hide Button Block from admin Menu',    
+        array($this , "button_block_option_callback"), 
+        'general'                 
+    );
+
+ }
+
+ function button_block_option_callback() {
+  // Get the current value from the database, default is 'off'
+  $value = get_option( 'button_block_option', 'false' );
+  ?>
+  <label class="switch">
+      <input type="checkbox" id="button_block_option" name="button_block_option" value="true" <?php checked( $value, 'true' ); ?>>
+      <span class="slider round"></span>
+  </label>
+  <p class="description">Turn this setting on or off.</p>
+
+  <style>
+      /* Add styles for a nice looking switcher */
+      .switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+      }
+
+      .switch input { 
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+
+      .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 34px;
+      }
+
+      .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+      }
+
+      input:checked + .slider {
+          background-color: #2196F3;
+      }
+
+      input:checked + .slider:before {
+          transform: translateX(26px);
+      }
+  </style>
+  <?php
+}
+
+
 
   
 }

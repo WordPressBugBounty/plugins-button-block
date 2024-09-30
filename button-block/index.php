@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
- * Version: 1.1.3
+ * Version: 1.1.4
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * License: GPLv3
