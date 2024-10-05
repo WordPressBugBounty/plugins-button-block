@@ -59,7 +59,7 @@ class Button_Common{
                 'not_found' => __('Sorry, we couldn\'t find any item you are looking for.')
             ),
             'public' => false,
-            'show_ui' => $show_ui ,
+            'show_ui' => $show_ui,
             'publicly_queryable' => false,
             'exclude_from_search' => false,
             'show_in_rest'			=> true,
@@ -138,7 +138,6 @@ function helpPage(){ ?>
 	}
 
   function onBtnBlockAddShortcode( $atts ) {
-    
 		$post_id = $atts['id'];
 
 		$post = get_post( $post_id );
@@ -158,7 +157,8 @@ function helpPage(){ ?>
 
       wp_send_json_success($roles);
   }
- function add_option_in_general_settings(){
+
+  function add_option_in_general_settings(){
         register_setting(
         'general',    
         'button_block_option', 
@@ -172,19 +172,19 @@ function helpPage(){ ?>
         'general'                 
     );
 
- }
+}
 
- function button_block_option_callback() {
-  // Get the current value from the database, default is 'off'
-  $value = get_option( 'button_block_option', 'false' );
-  ?>
-  <label class="switch">
+function button_block_option_callback() {
+    // Get the current value from the database, default is 'off'
+    $value = get_option( 'button_block_option', 'false' );
+    ?>
+    <label class="switch">
       <input type="checkbox" id="button_block_option" name="button_block_option" value="true" <?php checked( $value, 'true' ); ?>>
       <span class="slider round"></span>
-  </label>
-  <p class="description">Turn this setting on or off.</p>
+    </label>
+    <p class="description">Turn this setting on or off.</p>
 
-  <style>
+    <style>
       /* Add styles for a nice looking switcher */
       .switch {
           position: relative;
@@ -230,10 +230,9 @@ function helpPage(){ ?>
       input:checked + .slider:before {
           transform: translateX(26px);
       }
-  </style>
-  <?php
+    </style>
+    <?php
 }
-
 
 
   

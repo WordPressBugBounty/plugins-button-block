@@ -4,7 +4,7 @@
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
  * Version: 1.1.4
- * Author: bPlugins
+ * Author: bPlugins LLC 
  * Author URI: http://bplugins.com
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -14,7 +14,6 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-
 if ( function_exists( 'btn_fs' ) ) {
     register_activation_hook( __FILE__, function () {
         if ( is_plugin_active( 'button-block/index.php' ) ) {
@@ -31,16 +30,12 @@ if ( function_exists( 'btn_fs' ) ) {
     define( 'BTN_DIR_PATH', plugin_dir_path( __FILE__ ) );
     define( 'BTN_HAS_FREE', 'button-block/index.php' === plugin_basename( __FILE__ ) );
     define( 'BTN_HAS_PRO', 'button-block-pro/index.php' === plugin_basename( __FILE__ ) );
-    
     if ( !function_exists( 'btn_fs' ) ) {
-        function btn_fs()
-        {
-            global  $btn_fs ;
-            
+        function btn_fs() {
+            global $btn_fs;
             if ( !isset( $btn_fs ) ) {
                 $fsStartPath = dirname( __FILE__ ) . '/freemius/start.php';
                 $bSDKInitPath = dirname( __FILE__ ) . '/bplugins_sdk/init.php';
-                
                 if ( file_exists( $fsStartPath ) ) {
                     require_once $fsStartPath;
                 } else {
@@ -48,7 +43,6 @@ if ( function_exists( 'btn_fs' ) ) {
                         require_once $bSDKInitPath;
                     }
                 }
-                
                 $btnConfig = [
                     'id'                  => '13491',
                     'slug'                => 'button-block',
@@ -61,29 +55,26 @@ if ( function_exists( 'btn_fs' ) ) {
                     'has_addons'          => false,
                     'has_paid_plans'      => true,
                     'trial'               => [
-                    'days'               => 7,
-                    'is_require_payment' => true,
-                ],
+                        'days'               => 7,
+                        'is_require_payment' => true,
+                    ],
                     'has_affiliation'     => 'all',
                     'menu'                => [
-                    'slug'    => 'edit.php?post_type=button-block',
-                    'contact' => false,
-                    'support' => false,
-                ],
+                        'slug'    => 'edit.php?post_type=button-block',
+                        'contact' => false,
+                        'support' => false,
+                    ],
                 ];
                 $btn_fs = ( file_exists( $fsStartPath ) ? fs_dynamic_init( $btnConfig ) : fs_lite_dynamic_init( $btnConfig ) );
             }
-            
             return $btn_fs;
         }
-        
+
         btn_fs();
         do_action( 'btn_fs_loaded' );
     }
-    
     require_once BTN_DIR_PATH . 'inc/block.php';
     require_once BTN_DIR_PATH . 'inc/class-button-block-common.php';
-    
     if ( BTN_HAS_PRO ) {
         require_once BTN_DIR_PATH . 'inc/class-button-block-pro.php';
         if ( function_exists( 'btn_fs' ) ) {
@@ -92,30 +83,24 @@ if ( function_exists( 'btn_fs' ) ) {
             } );
         }
     }
-    
     if ( BTN_HAS_FREE ) {
         require_once BTN_DIR_PATH . '/inc/UpgradePage.php';
     }
-    function btnIsPremium()
-    {
+    function btnIsPremium() {
         return ( BTN_HAS_PRO ? btn_fs()->can_use_premium_code() : false );
     }
-    
+
     // Button Block
-    
     if ( !class_exists( 'BTNPlugin' ) ) {
-        class BTNPlugin
-        {
-            function __construct()
-            {
-                add_action( 'wp_ajax_btnPipeChecker', [ $this, 'btnPipeChecker' ] );
-                add_action( 'wp_ajax_nopriv_btnPipeChecker', [ $this, 'btnPipeChecker' ] );
-                add_action( 'admin_init', [ $this, 'registerSettings' ] );
-                add_action( 'rest_api_init', [ $this, 'registerSettings' ] );
+        class BTNPlugin {
+            function __construct() {
+                add_action( 'wp_ajax_btnPipeChecker', [$this, 'btnPipeChecker'] );
+                add_action( 'wp_ajax_nopriv_btnPipeChecker', [$this, 'btnPipeChecker'] );
+                add_action( 'admin_init', [$this, 'registerSettings'] );
+                add_action( 'rest_api_init', [$this, 'registerSettings'] );
             }
-            
-            function btnPipeChecker()
-            {
+
+            function btnPipeChecker() {
                 $nonce = $_POST['_wpnonce'];
                 if ( !wp_verify_nonce( $nonce, 'wp_ajax' ) ) {
                     wp_send_json_error( 'Invalid Request' );
@@ -124,26 +109,25 @@ if ( function_exists( 'btn_fs' ) ) {
                     'isPipe' => btnIsPremium(),
                 ] );
             }
-            
-            function registerSettings()
-            {
+
+            function registerSettings() {
                 register_setting( 'btnUtils', 'btnUtils', [
                     'show_in_rest'      => [
-                    'name'   => 'btnUtils',
-                    'schema' => [
-                    'type' => 'string',
-                ],
-                ],
+                        'name'   => 'btnUtils',
+                        'schema' => [
+                            'type' => 'string',
+                        ],
+                    ],
                     'type'              => 'string',
                     'default'           => wp_json_encode( [
-                    'nonce' => wp_create_nonce( 'wp_ajax' ),
-                ] ),
+                        'nonce' => wp_create_nonce( 'wp_ajax' ),
+                    ] ),
                     'sanitize_callback' => 'sanitize_text_field',
                 ] );
             }
-        
+
         }
+
         new BTNPlugin();
     }
-
 }

@@ -1,9 +1,9 @@
 === Button Block - Get fully customizable & multi-functional buttons ===
-Contributors:bplugins, abuhayat, charlescormier, freemius, shehab24
+Contributors: abuhayat, charlescormier, freemius, shehab24
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, multi-functional button, download button, link button, Gutenberg block
 Requires at least: 6.2+
-Tested up to: 6.6
+Tested up to: 6.4.3
 Stable tag: 1.1.4
 Requires PHP: 7.1
 License: GPLv3 or later
@@ -32,6 +32,8 @@ Get multi-functional buttons. The Button Block plugin comes up with many useful 
 - **3D**: Make button 3D with just single click.
 
 - **Animation**: Lots of animation style with duration.
+
+- **Hide Menu**: Hide Button block option from admin menu.
 
 
 = Pro Features =
@@ -86,13 +88,6 @@ Get multi-functional buttons. The Button Block plugin comes up with many useful 
 
 🔥 **[Advanced Post Block](https://bplugins.com/products/advanced-post-block/)** – Display your Posts, Custom Post Content and Blogs in a professional way!
 
-🔥 **[Button Block](https://wordpress.org/plugins/button-block/)** – Display attractive and Functional Button on website.
-
-🔥 **[Easy Twitter Feed](https://wordpress.org/plugins/easy-twitter-feeds)** – Twitter feeds plugin for WP
-
-🔥 **[Liteweight Podcast](https://wordpress.org/plugins/liteweight-podcast/)** – Podcast publishing plugin for WP
-
-🔥 **[Store Finder for WooCommerce](https://wordpress.org/plugins/store-finder/)** – Lists your store contact info professionally
 
 == Installation ==
 
@@ -153,8 +148,6 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 = 1.1.1 - 3 Feb 2024 =
 * Fix activation issue.
-* Added Something new
-* Optimized
 
 = 1.1.0 - 22 Jan 2024 =
 * General improvements and optimizations.
