@@ -1,5 +1,5 @@
 === Button Block - Get fully customizable & multi-functional buttons ===
-Contributors: abuhayat, charlescormier, freemius, shehab24
+Contributors: abuhayat, charlescormier, freemius, shehab24,bplugins
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, multi-functional button, download button, link button, Gutenberg block
 Requires at least: 6.2+
