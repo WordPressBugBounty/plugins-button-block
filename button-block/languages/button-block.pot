@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Button Block 1.1.4\n"
+"Project-Id-Version: Button Block 1.1.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/button-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-10-04T23:18:46+02:00\n"
+"POT-Creation-Date: 2024-10-27T19:45:10+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: button-block\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: inc/class-button-block-common.php:39
 #: dist/editor.js:15
-#: dist/editor.js:3856
+#: dist/editor.js:13620
 msgid "Help"
 msgstr ""
 
@@ -66,684 +66,684 @@ msgid "Upgrade"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3842
+#: dist/editor.js:13606
 msgid "Link"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3843
-#: dist/editor.js:3930
+#: dist/editor.js:13607
+#: dist/editor.js:13694
 msgid "Popup"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3846
-#: dist/editor.js:3902
+#: dist/editor.js:13610
+#: dist/editor.js:13666
 msgid "None"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3847
+#: dist/editor.js:13611
 msgid "Password Protected"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3848
+#: dist/editor.js:13612
 msgid "Login Protected"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3852
+#: dist/editor.js:13616
 msgid "Alternate"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3853
+#: dist/editor.js:13617
 msgid "Author"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3854
+#: dist/editor.js:13618
 msgid "Bookmark"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3855
+#: dist/editor.js:13619
 msgid "External"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3857
+#: dist/editor.js:13621
 msgid "License"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3858
+#: dist/editor.js:13622
 msgid "Next"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3859
+#: dist/editor.js:13623
 msgid "No Follow"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3860
+#: dist/editor.js:13624
 msgid "No Opener"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3861
-#: dist/editor.js:3868
+#: dist/editor.js:13625
+#: dist/editor.js:13632
 msgid "No Referrer"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3862
+#: dist/editor.js:13626
 msgid "Prev"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3863
+#: dist/editor.js:13627
 msgid "Search"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3864
+#: dist/editor.js:13628
 msgid "Tag"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3869
+#: dist/editor.js:13633
 msgid "No Referrer When Downgrade"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3870
+#: dist/editor.js:13634
 msgid "Origin"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3871
+#: dist/editor.js:13635
 msgid "Origin When Cross Origin"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3872
+#: dist/editor.js:13636
 msgid "Same Origin"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3873
+#: dist/editor.js:13637
 msgid "Strict Origin When Cross Origin"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3874
+#: dist/editor.js:13638
 msgid "Unsafe Url"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3878
+#: dist/editor.js:13642
 msgid "Top"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3879
-#: dist/editor.js:3886
+#: dist/editor.js:13643
+#: dist/editor.js:13650
 msgid "Right"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3880
+#: dist/editor.js:13644
 msgid "Bottom"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3881
-#: dist/editor.js:3885
+#: dist/editor.js:13645
+#: dist/editor.js:13649
 msgid "Left"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3890
+#: dist/editor.js:13654
 msgid "Flat"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3891
+#: dist/editor.js:13655
 msgid "3D"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3895
+#: dist/editor.js:13659
 msgid "Small"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3896
+#: dist/editor.js:13660
 msgid "Medium"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3897
+#: dist/editor.js:13661
 msgid "Large"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3898
+#: dist/editor.js:13662
 msgid "X Large"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3903
+#: dist/editor.js:13667
 msgid "Fade"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3904
+#: dist/editor.js:13668
 msgid "Fade Up"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3905
+#: dist/editor.js:13669
 msgid "Fade Down"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3906
+#: dist/editor.js:13670
 msgid "Fade Left"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3907
+#: dist/editor.js:13671
 msgid "Fade Right"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3908
+#: dist/editor.js:13672
 msgid "Flip Up"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3909
+#: dist/editor.js:13673
 msgid "Flip Down"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3910
+#: dist/editor.js:13674
 msgid "Flip Left"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3911
+#: dist/editor.js:13675
 msgid "Flip Right"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3912
+#: dist/editor.js:13676
 msgid "Zoom In"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3913
+#: dist/editor.js:13677
 msgid "Zoom In Up"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3914
+#: dist/editor.js:13678
 msgid "Zoom In Down"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3915
+#: dist/editor.js:13679
 msgid "Zoom In Left"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3916
+#: dist/editor.js:13680
 msgid "Zoom In Right"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3920
+#: dist/editor.js:13684
 msgid "Image"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3921
+#: dist/editor.js:13685
 msgid "Audio"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3922
+#: dist/editor.js:13686
 msgid "Video"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3923
+#: dist/editor.js:13687
 msgid "Content"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3924
+#: dist/editor.js:13688
 msgid "Document"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3925
+#: dist/editor.js:13689
 msgid "Iframe"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3929
+#: dist/editor.js:13693
 msgid "General"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:3931
+#: dist/editor.js:13695
 msgid "Style"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4031
+#: dist/editor.js:13795
 msgid "Copy Shortcode"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4016
+#: dist/editor.js:13780
 msgid "Copied!"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4018
-#: dist/editor.js:4032
+#: dist/editor.js:13782
+#: dist/editor.js:13796
 msgid "Click to Copy"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4040
-#: dist/editor.js:4208
+#: dist/editor.js:13804
+#: dist/editor.js:13974
 msgid "Button"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4042
+#: dist/editor.js:13806
 msgid "Text:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4046
+#: dist/editor.js:13810
 msgid "Action:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4048
-msgid "Security:"
-msgstr ""
-
-#: dist/editor.js:15
-#: dist/editor.js:4051
-msgid "Set User Role:"
-msgstr ""
-
-#: dist/editor.js:15
-#: dist/editor.js:4054
-msgid "Set Password:"
-msgstr ""
-
-#: dist/editor.js:15
-#: dist/editor.js:4060
+#: dist/editor.js:13816
 msgid "URL:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4063
+#: dist/editor.js:13819
+msgid "Security:"
+msgstr ""
+
+#: dist/editor.js:15
+#: dist/editor.js:13822
+msgid "Set User Role:"
+msgstr ""
+
+#: dist/editor.js:15
+#: dist/editor.js:13825
+msgid "Set Password:"
+msgstr ""
+
+#: dist/editor.js:15
+#: dist/editor.js:13829
 msgid "Open link in new tab"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4065
+#: dist/editor.js:13831
 msgid "URL/Link Rel/Relation:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4068
+#: dist/editor.js:13834
 msgid "Enter Referer Policy:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4071
+#: dist/editor.js:13837
 msgid "Download Button"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4074
+#: dist/editor.js:13840
 msgid "Make sure the URL/link is downloadable!"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4076
+#: dist/editor.js:13842
 msgid "Download File Name:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4077
+#: dist/editor.js:13843
 msgid "This is an experimental feature, and it may not work reliably every time."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4083
+#: dist/editor.js:13849
 msgid "Elements"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4084
+#: dist/editor.js:13850
 msgid "Upload Icon?"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4087
+#: dist/editor.js:13853
 msgid "Enter Icon URL"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4090
+#: dist/editor.js:13856
 msgid "Icon Position:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4092
+#: dist/editor.js:13858
 msgid "Tooltip Text:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4094
+#: dist/editor.js:13860
 msgid "If you want to add tooltip on button, type text rather then leave empty."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4096
+#: dist/editor.js:13862
 msgid "Tooltip Position:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4098
+#: dist/editor.js:13864
 msgid "Hide On Desktop"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4100
+#: dist/editor.js:13866
 msgid "Hide On Tablet"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4102
+#: dist/editor.js:13868
 msgid "Hide On Mobile"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4106
+#: dist/editor.js:13872
 msgid "Design"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4107
+#: dist/editor.js:13873
 msgid "Button Full Width?"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4110
+#: dist/editor.js:13876
 msgid "Button Size:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4135
+#: dist/editor.js:13901
 msgid "Button Type:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4151
+#: dist/editor.js:13917
 msgid "Animation"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4153
+#: dist/editor.js:13919
 msgid "Type:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4157
+#: dist/editor.js:13923
 msgid "Duration (Speed) (s):"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4163
+#: dist/editor.js:13929
 msgid "Additional"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4165
+#: dist/editor.js:13931
 msgid "ID:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4166
+#: dist/editor.js:13932
 msgid "Enter additional ID"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4169
+#: dist/editor.js:13935
 msgid "CSS:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4170
+#: dist/editor.js:13936
 msgid "Enter additional CSS"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4175
+#: dist/editor.js:13941
 msgid "Options"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4177
+#: dist/editor.js:13943
 msgid "Please select the popup from the button action to enable these options."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4181
+#: dist/editor.js:13947
 msgid "Content Type:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4183
+#: dist/editor.js:13949
 msgid "Image:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4183
+#: dist/editor.js:13949
 msgid "Enter Image URL"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4185
+#: dist/editor.js:13951
 msgid "Audio:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4185
+#: dist/editor.js:13951
 msgid "Enter Audio URL"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4188
+#: dist/editor.js:13954
 msgid "Video:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4188
+#: dist/editor.js:13954
 msgid "Enter Video URL"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4189
+#: dist/editor.js:13955
 msgid "Also support YouTube and Vimeo video."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4193
+#: dist/editor.js:13959
 msgid "Document:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4193
+#: dist/editor.js:13959
 msgid "Enter Document URL"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4194
+#: dist/editor.js:13960
 msgid "Supported Document: .pdf, .doc, .docx, .xls, .xlsx"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4198
+#: dist/editor.js:13964
 msgid "Iframe Source:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4198
+#: dist/editor.js:13964
 msgid "Enter Iframe URL"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4199
+#: dist/editor.js:13965
 msgid "Note: Enter only source URL"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4202
+#: dist/editor.js:13968
 msgid "Title/Caption:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4213
+#: dist/editor.js:13979
 msgid "Hover Colors:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4215
+#: dist/editor.js:13981
 msgid "Padding:"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4227
+#: dist/editor.js:13993
 msgid "Button Action: "
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4227
+#: dist/editor.js:13993
 msgid "Use the button as a link or popup trigger."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4229
+#: dist/editor.js:13995
 msgid "rel Attribute: "
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4229
+#: dist/editor.js:13995
 msgid "Add the rel/relation attribute to the anchor link."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4231
+#: dist/editor.js:13997
 msgid "referrer-policy Attribute: "
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4231
+#: dist/editor.js:13997
 msgid "Add the Referrer Policy attribute to the anchor link."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4233
+#: dist/editor.js:13999
 msgid "Download File Name: "
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4233
+#: dist/editor.js:13999
 msgid "For the download, enter a custom name for the download file. This is an experimental feature, and it may not work reliably every time."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4235
+#: dist/editor.js:14001
 msgid "Icon Position: "
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4235
+#: dist/editor.js:14001
 msgid "Set the icon position to the left or right."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4237
+#: dist/editor.js:14003
 msgid "Tooltip Position: "
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4237
+#: dist/editor.js:14003
 msgid "Choose a different position for the tooltip."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4239
+#: dist/editor.js:14005
 msgid "Hide on Devices: "
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4239
+#: dist/editor.js:14005
 msgid "Hide on various devices (desktop, tablet, and mobile)."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4241
+#: dist/editor.js:14007
 msgid "Popup Content: "
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4241
+#: dist/editor.js:14007
 msgid "Show Image, Audio, Video, Block Content, Document(.pdf, .doc, .docx, .xls, .xlsx), and Iframe."
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4243
+#: dist/editor.js:14009
 msgid "Security Features: "
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4243
+#: dist/editor.js:14009
 msgid "Login, Password , Email Required"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4249
+#: dist/editor.js:14015
 msgid "Button in left"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4250
+#: dist/editor.js:14016
 msgid "Button in center"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4251
+#: dist/editor.js:14017
 msgid "Button in right"
 msgstr ""
 
 #: dist/editor.js:15
-#: dist/editor.js:4313
+#: dist/editor.js:14079
 msgid "Button Text"
 msgstr ""
 

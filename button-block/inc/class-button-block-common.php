@@ -10,7 +10,7 @@ class Button_Common{
     add_filter('use_block_editor_for_post', array($this ,'btn_block_use_block_editor_callback'), 999, 2);
     add_filter( 'manage_button-block_posts_columns', [$this, 'manageBTNBlockPostsColumns'], 10 );  
 		add_action( 'manage_button-block_posts_custom_column', [$this, 'manageBTNBlockPostsCustomColumns'], 10, 2 );
-    add_shortcode( 'btn_block', [$this, 'onBtnBlockAddShortcode'] );
+    add_shortcode( 'btn_block', [$this, 'onAddShortcode'] );
     add_action('wp_ajax_custom_get_user_roles', array($this, 'btn_custom_get_user_roles_callback'));
     add_action( 'admin_init', array($this, 'add_option_in_general_settings') );
 	}
@@ -36,7 +36,7 @@ class Button_Common{
 	}
 
   function helpSubMenu(){
-    add_submenu_page("edit.php?post_type=button-block", __( 'Button Block Help', 'button-block' ), __( 'Help', 'button-block' ), 'manage_options', 'button-block-help',[$this, 'helpPage']);
+    add_submenu_page("edit.php?post_type=button-block", __( 'Button Block Help', 'button-block' ), __( 'Help', 'button-block' ), 'manage_options', 'button-block-help',[$this, 'helpPage'], 10);
   }
 
   function btn_pro_post_type()
@@ -50,7 +50,7 @@ class Button_Common{
             'labels' => array(
                 'name' => __('Button Block'),
                 'singular_name' => __('Button Block'),
-                'add_new' => __('Add New'),
+                'add_new' => __('Add Button Block'),
                 'add_new_item' => __('Add New Button '),
                 'edit_item' => __('Edit Button '),
                 'new_item' => __('New Button '),
@@ -137,17 +137,45 @@ function helpPage(){ ?>
 		}
 	}
 
-  function onBtnBlockAddShortcode( $atts ) {
-		$post_id = $atts['id'];
+    function onAddShortcode( $atts ) {
+      $post_id = $atts['id'];
+      $post = get_post( $post_id );
 
-		$post = get_post( $post_id );
-		$blocks = parse_blocks( $post->post_content );
+      if ( !$post ) {
+          return '';
+      }
 
-		ob_start();
-		echo render_block($blocks[0]);
+      if ( post_password_required( $post ) ) {
+          return get_the_password_form( $post );
+      }
 
-		return ob_get_clean();
-	}
+      switch ( $post->post_status ) {
+          case 'publish':
+              return $this->displayContent( $post );
+              
+          case 'private':
+              if (current_user_can('read_private_posts')) {
+                  return $this->displayContent( $post );
+              }
+              return '';
+              
+          case 'draft':
+          case 'pending':
+          case 'future':
+              if ( current_user_can( 'edit_post', $post_id ) ) {
+                  return $this->displayContent( $post );
+              }
+              return '';
+              
+          default:
+              return '';
+      }
+  }
+
+  function displayContent( $post ){
+      $blocks = parse_blocks( $post->post_content );
+      return render_block( $blocks[0] );
+  }
 
     function btn_custom_get_user_roles_callback()
   {
@@ -159,80 +187,80 @@ function helpPage(){ ?>
   }
 
   function add_option_in_general_settings(){
-        register_setting(
-        'general',    
-        'button_block_option', 
-        'sanitize_text_field' 
-    );
+          register_setting(
+          'general',    
+          'button_block_option', 
+          'sanitize_text_field' 
+      );
 
-    add_settings_field(
-        'button_block_option_field', 
-        'Hide Button Block from admin Menu',    
-        array($this , "button_block_option_callback"), 
-        'general'                 
-    );
+      add_settings_field(
+          'button_block_option_field', 
+          'Hide Button Block from admin Menu',    
+          array($this , "button_block_option_callback"), 
+          'general'                 
+      );
 
-}
+  }
 
-function button_block_option_callback() {
-    // Get the current value from the database, default is 'off'
-    $value = get_option( 'button_block_option', 'false' );
-    ?>
-    <label class="switch">
-      <input type="checkbox" id="button_block_option" name="button_block_option" value="true" <?php checked( $value, 'true' ); ?>>
-      <span class="slider round"></span>
-    </label>
-    <p class="description">Turn this setting on or off.</p>
+  function button_block_option_callback() {
+      // Get the current value from the database, default is 'off'
+      $value = get_option( 'button_block_option', 'false' );
+      ?>
+      <label class="switch">
+        <input type="checkbox" id="button_block_option" name="button_block_option" value="true" <?php checked( $value, 'true' ); ?>>
+        <span class="slider round"></span>
+      </label>
+      <p class="description">Turn this setting on or off.</p>
 
-    <style>
-      /* Add styles for a nice looking switcher */
-      .switch {
-          position: relative;
-          display: inline-block;
-          width: 60px;
-          height: 34px;
-      }
+      <style>
+        /* Add styles for a nice looking switcher */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
 
-      .switch input { 
-          opacity: 0;
-          width: 0;
-          height: 0;
-      }
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
 
-      .slider {
-          position: absolute;
-          cursor: pointer;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: #ccc;
-          transition: .4s;
-          border-radius: 34px;
-      }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
 
-      .slider:before {
-          position: absolute;
-          content: "";
-          height: 26px;
-          width: 26px;
-          left: 4px;
-          bottom: 4px;
-          background-color: white;
-          transition: .4s;
-          border-radius: 50%;
-      }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
 
-      input:checked + .slider {
-          background-color: #2196F3;
-      }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
 
-      input:checked + .slider:before {
-          transform: translateX(26px);
-      }
-    </style>
-    <?php
-}
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+      </style>
+      <?php
+  }
 
 
   

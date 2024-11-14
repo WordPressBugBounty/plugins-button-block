@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
- * Version: 1.1.4
+ * Version: 1.1.5
  * Author: bPlugins LLC 
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -74,18 +74,20 @@ if ( function_exists( 'btn_fs' ) ) {
         do_action( 'btn_fs_loaded' );
     }
     require_once BTN_DIR_PATH . 'inc/block.php';
-    require_once BTN_DIR_PATH . 'inc/class-button-block-common.php';
     if ( BTN_HAS_PRO ) {
-        require_once BTN_DIR_PATH . 'inc/class-button-block-pro.php';
+        if ( btn_fs()->can_use_premium_code() ) {
+            require_once BTN_DIR_PATH . 'inc/class-button-block-pro.php';
+        }
         if ( function_exists( 'btn_fs' ) ) {
             btn_fs()->add_filter( 'freemius_pricing_js_path', function () {
                 return BTN_DIR_PATH . 'inc/freemius-pricing/freemius-pricing.js';
             } );
         }
     }
-    if ( BTN_HAS_FREE ) {
-        require_once BTN_DIR_PATH . '/inc/UpgradePage.php';
-    }
+    require_once BTN_DIR_PATH . 'inc/class-button-block-common.php';
+    // if( BTN_HAS_FREE ){
+    // 	require_once BTN_DIR_PATH . '/inc/UpgradePage.php';
+    // }
     function btnIsPremium() {
         return ( BTN_HAS_PRO ? btn_fs()->can_use_premium_code() : false );
     }
