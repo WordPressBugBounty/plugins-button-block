@@ -3,7 +3,7 @@ Contributors: abuhayat, charlescormier, freemius, shehab24,bplugins
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, multi-functional button, download button, link button, Gutenberg block
 Requires at least: 6.2+
-Tested up to: 6.7
+Tested up to: 6.7.1
 Stable tag: 1.1.5
 Requires PHP: 7.1
 License: GPLv3 or later
