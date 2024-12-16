@@ -1,15 +1,8 @@
-
-
-
-
-
-
-
-
-
-
-
 == Changed Log ==
+
+= 2.1.0 = 
+* Enable First Path redirect
+* Fix early hook call
 
 = 1.1.3 = 
 * Improved plugin deactivate if other version is exists

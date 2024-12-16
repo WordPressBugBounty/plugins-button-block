@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, multi-functional button, download button, link button, Gutenberg block
 Requires at least: 6.2+
 Tested up to: 6.7.1
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -145,6 +145,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Changelog ==
+
+= 1.1.6 - 16 Dec 2024 =
+* Fix security issue for duplicate post.
 
 = 1.1.1 - 3 Feb 2024 =
 * Fix activation issue.

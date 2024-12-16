@@ -3,8 +3,8 @@
 /**
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
- * Version: 1.1.5
- * Author: bPlugins LLC 
+ * Version: 1.1.6
+ * Author: bPlugins LLC
  * Author URI: http://bplugins.com
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -25,7 +25,7 @@ if ( function_exists( 'btn_fs' ) ) {
     } );
 } else {
     // Constant
-    define( 'BTN_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.1.3' ) );
+    define( 'BTN_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.1.6' ) );
     define( 'BTN_DIR_URL', plugin_dir_url( __FILE__ ) );
     define( 'BTN_DIR_PATH', plugin_dir_path( __FILE__ ) );
     define( 'BTN_HAS_FREE', 'button-block/index.php' === plugin_basename( __FILE__ ) );
@@ -73,21 +73,11 @@ if ( function_exists( 'btn_fs' ) ) {
         btn_fs();
         do_action( 'btn_fs_loaded' );
     }
-    require_once BTN_DIR_PATH . 'inc/block.php';
+    require_once BTN_DIR_PATH . 'includes/AdminMenu.php';
+    require_once BTN_DIR_PATH . 'includes/CustomPost.php';
     if ( BTN_HAS_PRO ) {
-        if ( btn_fs()->can_use_premium_code() ) {
-            require_once BTN_DIR_PATH . 'inc/class-button-block-pro.php';
-        }
-        if ( function_exists( 'btn_fs' ) ) {
-            btn_fs()->add_filter( 'freemius_pricing_js_path', function () {
-                return BTN_DIR_PATH . 'inc/freemius-pricing/freemius-pricing.js';
-            } );
-        }
+        require_once BTN_DIR_PATH . 'includes/EmailLead.php';
     }
-    require_once BTN_DIR_PATH . 'inc/class-button-block-common.php';
-    // if( BTN_HAS_FREE ){
-    // 	require_once BTN_DIR_PATH . '/inc/UpgradePage.php';
-    // }
     function btnIsPremium() {
         return ( BTN_HAS_PRO ? btn_fs()->can_use_premium_code() : false );
     }
@@ -96,10 +86,40 @@ if ( function_exists( 'btn_fs' ) ) {
     if ( !class_exists( 'BTNPlugin' ) ) {
         class BTNPlugin {
             function __construct() {
+                add_action( 'enqueue_block_assets', [$this, 'enqueueBlockAssets'] );
+                add_action( 'init', [$this, 'onInit'] );
                 add_action( 'wp_ajax_btnPipeChecker', [$this, 'btnPipeChecker'] );
                 add_action( 'wp_ajax_nopriv_btnPipeChecker', [$this, 'btnPipeChecker'] );
                 add_action( 'admin_init', [$this, 'registerSettings'] );
                 add_action( 'rest_api_init', [$this, 'registerSettings'] );
+                add_action( 'wp_ajax_btnUserRoles', [$this, 'userRoles'] );
+                add_action( 'wp_ajax_nopriv_btnUserRoles', [$this, 'userRoles'] );
+            }
+
+            function enqueueBlockAssets() {
+                wp_register_style(
+                    'fontAwesome',
+                    BTN_DIR_URL . 'public/css/font-awesome.min.css',
+                    [],
+                    '6.4.2'
+                );
+                wp_register_style(
+                    'aos',
+                    BTN_DIR_URL . 'public/css/aos.css',
+                    [],
+                    '3.0.0'
+                );
+                wp_register_script(
+                    'aos',
+                    BTN_DIR_URL . 'public/js/aos.js',
+                    [],
+                    '3.0.0',
+                    true
+                );
+            }
+
+            function onInit() {
+                register_block_type( __DIR__ . '/build' );
             }
 
             function btnPipeChecker() {
@@ -126,6 +146,15 @@ if ( function_exists( 'btn_fs' ) ) {
                     ] ),
                     'sanitize_callback' => 'sanitize_text_field',
                 ] );
+            }
+
+            function userRoles() {
+                $nonce = $_POST['_wpnonce'] ?? null;
+                if ( !wp_verify_nonce( $nonce, 'wp_ajax' ) ) {
+                    wp_send_json_error( 'Invalid Request' );
+                }
+                global $wp_roles;
+                wp_send_json_success( $wp_roles->get_names() );
             }
 
         }
