@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, multi-functional button, download button, link button, Gutenberg block
 Requires at least: 6.2+
 Tested up to: 6.7.1
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -146,52 +146,11 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.1.7 - 25 Jan 2025 =
+* Fix security issue for button text.
+
 = 1.1.6 - 16 Dec 2024 =
 * Fix security issue for duplicate post.
-
-= 1.1.1 - 3 Feb 2024 =
-* Fix activation issue.
-
-= 1.1.0 - 22 Jan 2024 =
-* General improvements and optimizations.
-
-= 1.0.9 - 21 Dec 2023 =
-* Update SDK
-
-= 1.0.8 - 23 Sep 2023 =
-* Update download option notice.
-
-= 1.0.7 - 20 Sep 2023 =
-* Update SDK and Premium Handling
-
-= 1.0.6 - 17 Sep 2023 =
-* Open the popup by clicking on the button.
-* Add rel, and referrer policy attributes.
-* Download file name feature
-* Icon and Tooltip Position
-* Hide on Devices
-
-= 1.0.5 =
-* Add option for ID and CSS
-* Not load scripts if block is not used.
-
-= 1.0.4 =
-* Fix editor script load in frontend
-
-= 1.0.3 =
-* Reduce asset load
-
-= 1.0.2 =
-* Upload custom icon feature
-
-= 1.0.1 =
-* Add translate feature
-
-= 1.0.0 =
-* Initial Release
-
-
-== Upgrade Notice ==
 
 = 1.1.1 - 3 Feb 2024 =
 * Fix activation issue.

@@ -3,8 +3,8 @@
 /**
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
- * Version: 1.1.6
- * Author: bPlugins LLC
+ * Version: 1.1.7
+ * Author: bPlugins
  * Author URI: http://bplugins.com
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -25,7 +25,7 @@ if ( function_exists( 'btn_fs' ) ) {
     } );
 } else {
     // Constant
-    define( 'BTN_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.1.6' ) );
+    define( 'BTN_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.1.7' ) );
     define( 'BTN_DIR_URL', plugin_dir_url( __FILE__ ) );
     define( 'BTN_DIR_PATH', plugin_dir_path( __FILE__ ) );
     define( 'BTN_HAS_FREE', 'button-block/index.php' === plugin_basename( __FILE__ ) );
