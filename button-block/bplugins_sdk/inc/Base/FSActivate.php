@@ -63,7 +63,7 @@ class FSActivate extends FS_LITE{
     }
 
     function fs_notice_dismiss(){
-        if(!wp_verify_nonce( $_POST['nonce'], "wp_ajax")){
+        if(!wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['nonce'] ?? '')), "wp_ajax")){
             wp_send_json_error();
         }
         $fs_accounts = $this->get_fs_accounts();
@@ -73,7 +73,7 @@ class FSActivate extends FS_LITE{
     }
 
     function fs_init(){
-        if(!wp_verify_nonce( $_POST['nonce'], "wp_ajax")){
+        if(!wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['nonce'] ?? '')), "wp_ajax")){
             wp_send_json_error();
         }
        try {
@@ -191,7 +191,7 @@ class FSActivate extends FS_LITE{
     }
 
     function fetch_info(){
-        $nonce = $_POST['nonce'];
+        $nonce = wp_unslash(sanitize_text_field($_POST['nonce']));
         if(!wp_verify_nonce($nonce, "wp_ajax")){
             wp_send_json_error();
         }
@@ -289,7 +289,7 @@ class FSActivate extends FS_LITE{
    function admin_head(){
         $redirect = get_option("$this->prefix-redirect", false);
         if (!$redirect && !strpos($_SERVER['REQUEST_URI'], 'post.php') && !strpos($_SERVER['REQUEST_URI'], 'post-new.php')) {
-            update_option("$this->prefix-redirect", true); ?><script>window.location.href = '<?php echo "admin.php?page=" . dirname($this->base_name) ?>'</script><?php
+            update_option("$this->prefix-redirect", true); ?><script>window.location.href = '<?php echo esc_attr("admin.php?page=" . dirname($this->base_name)) ?>'</script><?php
         }
     }
 

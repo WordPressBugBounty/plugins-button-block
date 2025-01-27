@@ -98,7 +98,7 @@ if ( !function_exists( 'fs_lite_dynamic_init' ) ) {
             $fs = new BPluginsFSLite($module['__FILE__'], $module);
             return $fs;
         } catch ( \Throwable $th ) {
-            echo $th->getMessage();
+            throw $th->getMessage();
         }
     }
 
