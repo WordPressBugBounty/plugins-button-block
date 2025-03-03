@@ -3,6 +3,7 @@ extract( $attributes );
 
 $id = wp_unique_id( 'btnButton-' );
 
+$attributes['url'] = esc_url( $url );
 $popup = $popup ?? [ 'type' => 'image', 'content' => '', 'caption' => '' ];
 if ( 'content' === $popup['type'] ) {
 	$blocks = parse_blocks( $popup['content'] );
