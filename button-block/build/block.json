@@ -3,6 +3,7 @@
   "name": "btn/button",
   "title": "Button",
   "description": "Implement multi-functional button.",
+  "version": "1.2.1",
   "category": "widgets",
   "keywords": [
     "multi-functional button",
@@ -145,9 +146,7 @@
       "type": "object",
       "default": {
         "fontSize": {
-          "desktop": 16,
-          "tablet": 16,
-          "mobile": 16
+          "desktop": "16px"
         },
         "fontWeight": 600,
         "textDecoration": "none"
@@ -157,14 +156,14 @@
       "type": "object",
       "default": {
         "color": "#fff",
-        "bg": "#4527a4"
+        "bg": "#146EF5"
       }
     },
     "hovColors": {
       "type": "object",
       "default": {
         "color": "#fff",
-        "bg": "#8344c5"
+        "bg": "#FF7A00"
       }
     },
     "padding": {
@@ -199,7 +198,8 @@
   },
   "editorScript": [
     "file:./index.js",
-    "wp-api"
+    "wp-api",
+    "wp-api-request"
   ],
   "editorStyle": "file:./index.css",
   "style": [

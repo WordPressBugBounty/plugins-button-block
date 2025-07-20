@@ -2,33 +2,37 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Button Block 1.2.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/button-block-pro\n"
+"Project-Id-Version: Button Block 1.2.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/button-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-21T09:24:50+00:00\n"
+"POT-Creation-Date: 2025-07-20T11:02:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.8.1\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: button-block\n"
 
 #. Plugin Name of the plugin
+#: index.php
 #: includes/CustomPost.php:26
 #: includes/CustomPost.php:27
 msgid "Button Block"
 msgstr ""
 
 #. Description of the plugin
+#: index.php
 msgid "Implement multi-functional button"
 msgstr ""
 
 #. Author of the plugin
+#: index.php
 msgid "bPlugins"
 msgstr ""
 
 #. Author URI of the plugin
+#: index.php
 msgid "http://bplugins.com"
 msgstr ""
 
@@ -73,16 +77,28 @@ msgstr ""
 msgid "View Lead"
 msgstr ""
 
-#: includes/EmailLead.php:44
+#: includes/EmailLead.php:45
 msgid "Button Block Lead Page"
 msgstr ""
 
-#: includes/EmailLead.php:51
+#: includes/EmailLead.php:52
 msgid "Serial No"
 msgstr ""
 
-#: includes/EmailLead.php:52
+#: includes/EmailLead.php:53
+msgid "Post ID"
+msgstr ""
+
+#: includes/EmailLead.php:54
 msgid "Email"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Copied Successfully!"
+msgstr ""
+
+#: build/admin.js:1
+msgid "Copy To Clipboard"
 msgstr ""
 
 #: build/block.json

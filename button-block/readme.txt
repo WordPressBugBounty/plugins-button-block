@@ -3,8 +3,8 @@ Contributors: bplugins, abuhayat, charlescormier, freemius
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, multi-functional button, download button, link button, Gutenberg block
 Requires at least: 6.2+
-Tested up to: 6.7.2
-Stable tag: 1.2.0
+Tested up to: 6.8
+Stable tag: 1.2.1
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -13,14 +13,13 @@ Get multi-functional buttons
 
 == Description ==
 
+[**Demos**](https://bplugins.com/products/button-block/) | [**Buy Now**](https://bplugins.com/products/button-block/#pricing) | [**Demo**](https://bplugins.com/products/button-block/#demo)
+
 Get multi-functional buttons. The Button Block plugin comes up with many useful styling options that make you happy to build responsive, interactive, stylish buttons in a few clicks.
 
 
-**[Demos](https://bplugins.com/products/button-block)**
-**[Buy Now](https://bplugins.com/products/button-block/#pricing)**
+### Features of Button Block
 
-
-= Features =
 - **Download**: Download files with this button easily.
 
 - **Icon**: Add icon with button text.
@@ -36,7 +35,8 @@ Get multi-functional buttons. The Button Block plugin comes up with many useful 
 - **Hide Menu**: Hide Button block option from admin menu.
 
 
-= Pro Features =
+### Premium Features of Button Block
+
 - **Button Action**: Use the button as a link or popup trigger.
 
 - **rel Attribute**: Add the rel/relation attribute to the anchor link.
@@ -56,7 +56,12 @@ Get multi-functional buttons. The Button Block plugin comes up with many useful 
 - **Security Features**: Login, Password , Email Required.
 
 
-= How to use =
+### How to use Button Block
+Getting started is easy.
+
+https://youtube.com/watch?v=7AsT69P2bMk
+
+**Step by Step Setup**
 - First, install the Button Block plugin
 - Add the Button Block from the block category called "Widgets" in the Gutenberg editor.
 - You can change block settings from the right-side settings sidebar.
@@ -69,24 +74,24 @@ Get multi-functional buttons. The Button Block plugin comes up with many useful 
 - Did you like this plugin? Dislike it? Have a feature request? [Please share your feedback with us](mailto:support@bplugins.com 'Send feedback')
 
 
-= ⭐ Check out the Parent Plugin of this plugin- =
+### Check out the Parent Plugin of this plugin-
 
-🔥 **[b Blocks](https://bblockswp.com/)** – Best gutenberg blocks collections for WordPress.
+[**B Blocks**](https://bblockswp.com) – A blocks collection and page building tool for Gutenberg.
 
 
-= ⭐ Check out our other WordPress Plugins- =
+### Check out our other WordPress Plugins-
 
-🔥 **[Html5 Audio Player](https://bplugins.com/products/html5-audio-player/)** – Play .mp3, .wav, and .ogg audio files in WordPress.
+[**Html5 Video Player**](https://bplugins.com/products/html5-video-player/) – Display videos as single and playlist in multiple skins.
 
-🔥 **[Html5 Video Player](https://bplugins.com/products/html5-video-player/)** – Best video player plugin for WordPress.
+[**PDF Poster**](https://bplugins.com/products/pdf-poster/) – Display/Embed PDF files with different styles.
 
-🔥 **[PDF Poster](https://bplugins.com/products/pdf-poster/)** – A fully-featured PDF Viewer Plugin for WordPress.
+[**Html5 Audio Player**](https://bplugins.com/products/html5-audio-player/) – Listen audios with awesome visuals.
 
-🔥 **[Document Embedder](https://bplugins.com/products/document-embedder/)** – Embed Word, Excel, PowerPoint, Apple Pages, Psd, Pdf and more.
+[**StreamCast**](https://bplugins.com/products/streamcast-radio-player/) – Customizable radio player with different skins.
 
-🔥 **[3D Viewer](https://bplugins.com/products/3d-viewer/)** – Display interactive 3D models on the webs.
+[**3D Viewer**](https://bplugins.com/products/3d-viewer/) – Embed 3D models and 3D products with interaction.
 
-🔥 **[Advanced Post Block](https://bplugins.com/products/advanced-post-block/)** – Display your Posts, Custom Post Content and Blogs in a professional way!
+[**Advanced Post Block**](https://bplugins.com/products/advanced-post-block/) – Show posts and custom posts in different layouts.
 
 
 == Installation ==
@@ -145,6 +150,10 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Changelog ==
+
+= 1.2.1 - 20 Jul 2025 =
+* Fix Post Duplicate issue.
+* Update SDK.
 
 = 1.2.0 - 3 Mar 2025 =
 * URL sanitize.

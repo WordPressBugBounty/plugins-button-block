@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
- * Version: 1.2.0
+ * Version: 1.2.1
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -15,33 +15,21 @@ if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 if ( function_exists( 'btn_fs' ) ) {
-    register_activation_hook( __FILE__, function () {
-        if ( is_plugin_active( 'button-block/index.php' ) ) {
-            deactivate_plugins( 'button-block/index.php' );
-        }
-        if ( is_plugin_active( 'button-block-pro/index.php' ) ) {
-            deactivate_plugins( 'button-block-pro/index.php' );
-        }
-    } );
+    btn_fs()->set_basename( false, __FILE__ );
 } else {
     // Constant
-    define( 'BTN_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.2.0' ) );
+    define( 'BTN_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.2.1' ) );
     define( 'BTN_DIR_URL', plugin_dir_url( __FILE__ ) );
     define( 'BTN_DIR_PATH', plugin_dir_path( __FILE__ ) );
-    define( 'BTN_HAS_FREE', 'button-block/index.php' === plugin_basename( __FILE__ ) );
-    define( 'BTN_HAS_PRO', 'button-block-pro/index.php' === plugin_basename( __FILE__ ) );
+    define( 'BTN_HAS_PRO', file_exists( dirname( __FILE__ ) . '/vendor/freemius/start.php' ) );
     if ( !function_exists( 'btn_fs' ) ) {
         function btn_fs() {
             global $btn_fs;
             if ( !isset( $btn_fs ) ) {
-                $fsStartPath = dirname( __FILE__ ) . '/freemius/start.php';
-                $bSDKInitPath = dirname( __FILE__ ) . '/bplugins_sdk/init.php';
-                if ( file_exists( $fsStartPath ) ) {
-                    require_once $fsStartPath;
+                if ( BTN_HAS_PRO ) {
+                    require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
                 } else {
-                    if ( file_exists( $bSDKInitPath ) ) {
-                        require_once $bSDKInitPath;
-                    }
+                    require_once dirname( __FILE__ ) . '/vendor/freemius-lite/start.php';
                 }
                 $btnConfig = [
                     'id'                  => '13491',
@@ -60,12 +48,13 @@ if ( function_exists( 'btn_fs' ) ) {
                     ],
                     'has_affiliation'     => 'all',
                     'menu'                => [
-                        'slug'    => 'edit.php?post_type=button-block',
-                        'contact' => false,
-                        'support' => false,
+                        'slug'       => 'edit.php?post_type=button-block',
+                        'first-path' => 'edit.php?post_type=button-block',
+                        'contact'    => false,
+                        'support'    => false,
                     ],
                 ];
-                $btn_fs = ( file_exists( $fsStartPath ) ? fs_dynamic_init( $btnConfig ) : fs_lite_dynamic_init( $btnConfig ) );
+                $btn_fs = ( BTN_HAS_PRO ? fs_dynamic_init( $btnConfig ) : fs_lite_dynamic_init( $btnConfig ) );
             }
             return $btn_fs;
         }
@@ -75,13 +64,13 @@ if ( function_exists( 'btn_fs' ) ) {
     }
     require_once BTN_DIR_PATH . 'includes/AdminMenu.php';
     require_once BTN_DIR_PATH . 'includes/CustomPost.php';
-    if ( BTN_HAS_PRO ) {
-        require_once BTN_DIR_PATH . 'includes/EmailLead.php';
-    }
     function btnIsPremium() {
         return ( BTN_HAS_PRO ? btn_fs()->can_use_premium_code() : false );
     }
 
+    if ( BTN_HAS_PRO && btn_fs()->can_use_premium_code() ) {
+        require_once BTN_DIR_PATH . 'includes/EmailLead.php';
+    }
     // Button Block
     if ( !class_exists( 'BTNPlugin' ) ) {
         class BTNPlugin {
@@ -90,8 +79,6 @@ if ( function_exists( 'btn_fs' ) ) {
                 add_action( 'init', [$this, 'onInit'] );
                 add_action( 'wp_ajax_btnPipeChecker', [$this, 'btnPipeChecker'] );
                 add_action( 'wp_ajax_nopriv_btnPipeChecker', [$this, 'btnPipeChecker'] );
-                add_action( 'admin_init', [$this, 'registerSettings'] );
-                add_action( 'rest_api_init', [$this, 'registerSettings'] );
                 add_action( 'wp_ajax_btnUserRoles', [$this, 'userRoles'] );
                 add_action( 'wp_ajax_nopriv_btnUserRoles', [$this, 'userRoles'] );
             }
@@ -123,8 +110,7 @@ if ( function_exists( 'btn_fs' ) ) {
             }
 
             function btnPipeChecker() {
-                $nonce = $_POST['_wpnonce'];
-                if ( !wp_verify_nonce( $nonce, 'wp_ajax' ) ) {
+                if ( !wp_verify_nonce( sanitize_text_field( wp_unslash( ( isset( $_POST['_wpnonce'] ) ? $_POST['_wpnonce'] : null ) ) ), 'wp_rest' ) ) {
                     wp_send_json_error( 'Invalid Request' );
                 }
                 wp_send_json_success( [
@@ -132,25 +118,8 @@ if ( function_exists( 'btn_fs' ) ) {
                 ] );
             }
 
-            function registerSettings() {
-                register_setting( 'btnUtils', 'btnUtils', [
-                    'show_in_rest'      => [
-                        'name'   => 'btnUtils',
-                        'schema' => [
-                            'type' => 'string',
-                        ],
-                    ],
-                    'type'              => 'string',
-                    'default'           => wp_json_encode( [
-                        'nonce' => wp_create_nonce( 'wp_ajax' ),
-                    ] ),
-                    'sanitize_callback' => 'sanitize_text_field',
-                ] );
-            }
-
             function userRoles() {
-                $nonce = $_POST['_wpnonce'] ?? null;
-                if ( !wp_verify_nonce( $nonce, 'wp_ajax' ) ) {
+                if ( !wp_verify_nonce( sanitize_text_field( wp_unslash( ( isset( $_POST['_wpnonce'] ) ? $_POST['_wpnonce'] : null ) ) ), 'wp_rest' ) ) {
                     wp_send_json_error( 'Invalid Request' );
                 }
                 global $wp_roles;

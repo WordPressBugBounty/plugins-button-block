@@ -52,18 +52,27 @@ if( !class_exists( 'BTNCustomPost' ) ){
 
 		function postRowActions( $actions, $post ){
 			if ( $post->post_type == $this->post_type ) {
-				$actions['duplicate'] = '<a href="' . admin_url( "admin.php?action=duplicate_btn_block_post&post={$post->ID}" ) . '">Duplicate</a>';
+				$actions['duplicate'] = '<a href="' . admin_url( "admin.php?action=duplicate_btn_block_post&_wpnonce=" . wp_create_nonce( 'btn_duplicate_post' ) . "&post={$post->ID}" ) . '">Duplicate</a>';
 			}
 
 			return $actions;
 		}
 	
 		function duplicatePost(){
-			if ( !isset( $_GET['post'] ) || !current_user_can( 'edit_posts') ) {
-				wp_die( 'Permission denied' );
+			if (
+				!wp_verify_nonce(
+					sanitize_text_field( wp_unslash( isset( $_GET['_wpnonce'] ) ? $_GET['_wpnonce'] : null ) ),
+					'btn_duplicate_post'
+				)
+			) {
+				wp_send_json_error( 'Invalid Request' );
 			}
 
-			$postId = $_GET['post'];
+			if ( !isset( $_GET['post'] ) || !current_user_can( 'edit_posts') ) {
+				wp_send_json_error( 'Permission Denied' );
+			}
+
+			$postId = sanitize_text_field( wp_unslash( $_GET['post'] ) );
 			$post = get_post( $postId );
 
 			if ( !$post ) {
@@ -95,10 +104,10 @@ if( !class_exists( 'BTNCustomPost' ) ){
   
 		function manageBTNBlockPostsCustomColumns( $column_name, $post_ID ) {
 			if ( $column_name == 'shortcode' ) {
-				echo "<div class='bPlAdminShortcode' id='bPlAdminShortcode-$post_ID'>
+				echo wp_kses( "<div class='bPlAdminShortcode' id='bPlAdminShortcode-$post_ID'>
 					<input value='[btn_block id=$post_ID]' onclick='copyBPlAdminShortcode($post_ID)'>
 					<span class='tooltip'>Copy To Clipboard</span>
-				</div>";
+				</div>", [ 'div' => [ 'class' => true, 'id' => true ], 'input' => [ 'value' => true, 'onclick' => true ], 'span' => [ 'class' => true ] ] );
 			}
 		}
   

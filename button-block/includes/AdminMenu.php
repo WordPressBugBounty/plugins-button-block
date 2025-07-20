@@ -33,7 +33,7 @@ if( !class_exists( 'BTNAdminMenu' ) ){
 		function adminEnqueueScripts( $hook ){
 			if( 'edit.php' === $hook || strpos( $hook, '_button-block' ) ){
 				wp_enqueue_style( 'btn-admin', BTN_DIR_URL . 'build/admin.css', [], BTN_VERSION );
-				wp_enqueue_script( 'btn-admin', BTN_DIR_URL . 'build/admin.js', [ 'react', 'react-dom' ], BTN_VERSION );
+				wp_enqueue_script( 'btn-admin', BTN_DIR_URL . 'build/admin.js', [ 'react', 'react-dom' ], BTN_VERSION, true );
 				wp_set_script_translations( 'btn-admin', 'button-block', BTN_DIR_PATH . 'languages' );
 			}
 
