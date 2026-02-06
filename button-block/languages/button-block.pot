@@ -2,22 +2,23 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Button Block 1.2.2\n"
+"Project-Id-Version: Button Block 1.2.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/button-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-21T05:54:57+00:00\n"
+"POT-Creation-Date: 2025-11-26T04:47:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: button-block\n"
 
 #. Plugin Name of the plugin
 #: index.php
-#: includes/CustomPost.php:26
-#: includes/CustomPost.php:27
+#: includes/admin/CPT.php:33
+#: includes/admin/CPT.php:34
+#: includes/admin/SubMenu.php:16
 msgid "Button Block"
 msgstr ""
 
@@ -36,69 +37,68 @@ msgstr ""
 msgid "http://bplugins.com"
 msgstr ""
 
-#: includes/AdminMenu.php:49
-msgid "Button Block Help"
+#: includes/admin/AdminMenu.php:45
+msgid "Help & Demos - Button Block"
 msgstr ""
 
-#: includes/AdminMenu.php:50
-msgid "Help"
+#: includes/admin/AdminMenu.php:46
+msgid "Help & Demos"
 msgstr ""
 
-#: includes/CustomPost.php:28
+#: includes/admin/CPT.php:35
 msgid "Add New"
 msgstr ""
 
-#: includes/CustomPost.php:29
+#: includes/admin/CPT.php:36
 msgid "Add New Button"
 msgstr ""
 
-#: includes/CustomPost.php:30
+#: includes/admin/CPT.php:37
 msgid "Edit Button"
 msgstr ""
 
-#: includes/CustomPost.php:31
+#: includes/admin/CPT.php:38
 msgid "New Button"
 msgstr ""
 
-#: includes/CustomPost.php:32
+#: includes/admin/CPT.php:39
 msgid "View Button"
 msgstr ""
 
-#: includes/CustomPost.php:33
+#: includes/admin/CPT.php:40
 msgid "Search Button"
 msgstr ""
 
-#: includes/CustomPost.php:34
+#: includes/admin/CPT.php:41
 msgid "Sorry, we couldn't find any item you are looking for."
 msgstr ""
 
-#: includes/EmailLead.php:25
-#: includes/EmailLead.php:26
-msgid "View Lead"
+#: includes/admin/EmailLead.php:37
+msgid "View Email Lead - Button Block"
 msgstr ""
 
-#: includes/EmailLead.php:45
-msgid "Button Block Lead Page"
+#: includes/admin/EmailLead.php:38
+msgid "View Email Lead"
 msgstr ""
 
-#: includes/EmailLead.php:52
+#: includes/admin/EmailLead.php:55
+msgid "Button Block Email Lead Page"
+msgstr ""
+
+#: includes/admin/EmailLead.php:61
 msgid "Serial No"
 msgstr ""
 
-#: includes/EmailLead.php:53
+#: includes/admin/EmailLead.php:62
 msgid "Post ID"
 msgstr ""
 
-#: includes/EmailLead.php:54
+#: includes/admin/EmailLead.php:63
 msgid "Email"
 msgstr ""
 
-#: build/admin.js:1
-msgid "Copied Successfully!"
-msgstr ""
-
-#: build/admin.js:1
-msgid "Copy To Clipboard"
+#: includes/admin/SubMenu.php:15
+msgid "Button Block - bPlugins"
 msgstr ""
 
 #: build/block.json
@@ -124,4 +124,9 @@ msgstr ""
 #: build/block.json
 msgctxt "block keyword"
 msgid "link button"
+msgstr ""
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "popup button"
 msgstr ""

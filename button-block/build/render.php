@@ -1,7 +1,15 @@
 <?php
+$id = wp_unique_id( 'btnButton-' );
+
 extract( $attributes );
 
-$id = wp_unique_id( 'btnButton-' );
+if( isset( $icon['class'] ) && !empty( $icon['class'] ) ){
+	wp_enqueue_style( 'font-awesome-7' );
+}
+if( isset( $animationType ) && !empty( $animationType ) ){
+	wp_enqueue_script( 'aos' );
+	wp_enqueue_style( 'aos' );
+}
 
 $attributes['url'] = esc_url( $url );
 $popup = $popup ?? [ 'type' => 'image', 'content' => '', 'caption' => '' ];
@@ -23,4 +31,5 @@ if ( 'content' === $popup['type'] ) {
 		'userRoles' => is_user_logged_in() ? wp_get_current_user()->roles : [],
 		'loginURL' => wp_login_url()
 	] ) ); ?>'
+	data-pipecheck='<?php echo esc_attr( btnIsPremium() ); ?>'
 ></div>
