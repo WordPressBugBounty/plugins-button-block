@@ -152,11 +152,11 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 == Changelog ==
 
 = 1.2.3 - 25 Nov 2025 =
-* Extend Icons library.
-* Only load libraries when needed.
+* **Update:** Extend Icons library.
+* **Update:** Only load libraries when needed.
 
 = 1.2.2 - 21 Jul 2025 =
-* Fix popup issue.
+* **Fix:** Popup issue.
 
 = 1.2.1 - 20 Jul 2025 =
 * Fix Post Duplicate issue.
