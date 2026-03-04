@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
- * Version: 1.2.3
+ * Version: 1.2.4
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * License: GPLv3
@@ -16,14 +16,14 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 if ( function_exists( 'btn_fs' ) ) {
 	btn_fs()->set_basename( false, __FILE__ );
 }else{
-	// Constant
-	define( 'BTN_VERSION', isset( $_SERVER['HTTP_HOST'] ) && ( 'localhost' === $_SERVER['HTTP_HOST'] || 'plugins.local' === $_SERVER['HTTP_HOST'] ) ? time() : '1.2.3' );
+	define( 'BTN_VERSION', isset( $_SERVER['HTTP_HOST'] ) && ( 'localhost' === $_SERVER['HTTP_HOST'] || 'plugins.local' === $_SERVER['HTTP_HOST'] ) ? time() : '1.2.4' );
 	define( 'BTN_DIR_URL', plugin_dir_url( __FILE__ ) );
 	define( 'BTN_DIR_PATH', plugin_dir_path( __FILE__ ) );
 	define( 'BTN_HAS_PRO', file_exists( dirname(__FILE__) . '/vendor/freemius/start.php' ) );
 
 	if ( BTN_HAS_PRO ) {
 		require_once BTN_DIR_PATH . 'includes/fs.php';
+		require_once BTN_DIR_PATH . 'includes/LicenseActivation.php';
 
 		if( btn_fs()->can_use_premium_code() ){
 			require_once BTN_DIR_PATH . 'includes/admin/EmailLead.php';
@@ -40,7 +40,6 @@ if ( function_exists( 'btn_fs' ) ) {
 		return BTN_HAS_PRO ? btn_fs()->can_use_premium_code() : false;
 	}
 
-	// Button Block
 	if( !class_exists( 'BTNPlugin' ) ){
 		class BTNPlugin{
 			function __construct(){
@@ -50,6 +49,43 @@ if ( function_exists( 'btn_fs' ) ) {
 				add_action( 'enqueue_block_assets', [$this, 'enqueueBlockAssets'] );
 				add_action( 'wp_ajax_btnUserRoles', [$this, 'userRoles'] );
 				add_action( 'wp_ajax_nopriv_btnUserRoles', [$this, 'userRoles'] );
+
+				add_filter( 'plugin_action_links', [$this, 'pluginActionLinks'], 10, 2 );
+				add_filter( 'default_title', [$this, 'defaultTitle'], 10, 2 );
+				add_filter( 'default_content', [$this, 'defaultContent'], 10, 2 );
+			}
+			
+			function defaultTitle( $title, $post ) {
+				if ( 'page' === $post->post_type && isset( $_GET['title'] ) ) {
+					$nonce = isset( $_GET['nonce'] ) ? sanitize_text_field( wp_unslash( $_GET['nonce'] ) ) : '';
+
+					if ( wp_verify_nonce( $nonce, 'btnCreatePage' ) ) {
+						return sanitize_text_field( wp_unslash( $_GET['title'] ) );
+					}
+				}
+				return $title;
+			}
+
+			function defaultContent( $content, $post ) {
+				if ( 'page' === $post->post_type && isset( $_GET['content'] ) ) {
+					$nonce = isset( $_GET['nonce'] ) ? sanitize_text_field( wp_unslash( $_GET['nonce'] ) ) : '';
+
+					if ( wp_verify_nonce( $nonce, 'btnCreatePage' ) ) {
+						// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Content is secured by nonce verification and unslashed to preserve Gutenberg block markup.
+						return wp_unslash( $_GET['content'] );
+					}
+				}
+				return $content;
+			}
+
+			function pluginActionLinks( $links, $file ) {
+				if( plugin_basename( __FILE__ ) === $file ) {
+					$helpDemosLink = admin_url( 'true' !== get_option( 'button_block_option', '' ) ? 'edit.php?post_type=button-block&page=button-block#/welcome' : 'tools.php?page=button-block#/welcome' );
+
+					$links['help-and-demos'] = sprintf( '<a href="%s" style="%s">%s</a>', $helpDemosLink, 'color:#FF7A00;font-weight:bold', __( 'Help & Demos', 'button-block' ) );
+				}
+	
+				return $links;
 			}
 
 			function onInit() {
@@ -59,7 +95,9 @@ if ( function_exists( 'btn_fs' ) ) {
 			function adminEnqueueScripts( $hook ) {
 				if( false !== strpos( $hook, 'button-block' ) ){
 					wp_enqueue_style( 'btn-admin-dashboard', BTN_DIR_URL . 'build/admin/dashboard.css', [], BTN_VERSION );
-					wp_enqueue_script( 'btn-admin-dashboard', BTN_DIR_URL . 'build/admin/dashboard.js', [ 'react', 'react-dom' ], BTN_VERSION, true );
+
+					$asset_file = include BTN_DIR_PATH . 'build/admin/dashboard.asset.php';
+					wp_enqueue_script( 'btn-admin-dashboard', BTN_DIR_URL . 'build/admin/dashboard.js', array_merge( $asset_file['dependencies'], [ 'wp-util' ] ), BTN_VERSION, true );
 					wp_set_script_translations( 'btn-admin-dashboard', 'button-block', BTN_DIR_PATH . 'languages' );
 				}
 			}
@@ -78,9 +116,11 @@ if ( function_exists( 'btn_fs' ) ) {
 				<div
 					id='btnDashboard'
 					data-info='<?php echo esc_attr( wp_json_encode( [
-						'version'	=> BTN_VERSION,
-						'isPremium'	=> btnIsPremium(),
-						'hasPro'	=> BTN_HAS_PRO
+						'version' => BTN_VERSION,
+						'isPremium' => btnIsPremium(),
+						'hasPro' => BTN_HAS_PRO,
+						'nonce' => wp_create_nonce( 'btnCreatePage' ),
+						'licenseActiveNonce' => wp_create_nonce( 'bPlLicenseActivation' )
 					] ) ); ?>'
 				></div>
 			<?php }
