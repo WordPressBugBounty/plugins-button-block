@@ -1,35 +1,40 @@
 <?php
-$id = wp_unique_id( 'btnButton-' );
+if ( !defined( 'ABSPATH' ) ) { exit; }
 
-extract( $attributes );
+$btnbId = wp_unique_id( 'btnButton-' );
 
-if( isset( $icon['class'] ) && !empty( $icon['class'] ) ){
+// Extract attributes with defaults
+$btnbIcon = isset( $attributes['icon'] ) ? (array) $attributes['icon'] : [];
+$btnbAnimationType = isset( $attributes['animationType'] ) ? sanitize_text_field( $attributes['animationType'] ) : '';
+$btnbUrl = isset( $attributes['url'] ) ? esc_url_raw( $attributes['url'] ) : '';
+$btnbPopup = isset( $attributes['popup'] ) ? (array) $attributes['popup'] : [ 'type' => 'image', 'content' => '', 'caption' => '' ];
+
+if( isset( $btnbIcon['class'] ) && !empty( $btnbIcon['class'] ) ){
 	wp_enqueue_style( 'font-awesome-7' );
 }
-if( isset( $animationType ) && !empty( $animationType ) ){
+if( !empty( $btnbAnimationType ) ){
 	wp_enqueue_script( 'aos' );
 	wp_enqueue_style( 'aos' );
 }
 
-$attributes['url'] = esc_url( $url );
-$popup = $popup ?? [ 'type' => 'image', 'content' => '', 'caption' => '' ];
-if ( 'content' === $popup['type'] ) {
-	$blocks = parse_blocks( $popup['content'] );
-	$popup['content'] = '';
-	foreach ( $blocks as $block ) {
-		$popup['content'] .= render_block( $block );
+$attributes['url'] = esc_url( $btnbUrl );
+if ( 'content' === $btnbPopup['type'] ) {
+	$btnbContentBlocks = parse_blocks( $btnbPopup['content'] ?? '' );
+	$btnbPopup['content'] = '';
+	foreach ( $btnbContentBlocks as $btnbContentBlock ) {
+		$btnbPopup['content'] .= render_block( $btnbContentBlock );
 	}
 } // Convert the blocks to dom elements
 ?>
 <div
 	<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() is properly escaped ?>
-	<?php echo get_block_wrapper_attributes( [ 'class' => btnIsPremium() ? 'premium' : 'free' ] ); ?>
-	id='<?php echo esc_attr( $id ); ?>'
-	data-nonce='<?php echo esc_attr( wp_json_encode( wp_create_nonce( 'wp_rest' ) ) ); ?>'
-	data-attributes='<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>'
-	data-info='<?php echo esc_attr( wp_json_encode( [
-		'userRoles' => is_user_logged_in() ? wp_get_current_user()->roles : [],
-		'loginURL' => wp_login_url()
-	] ) ); ?>'
-	data-pipecheck='<?php echo esc_attr( btnIsPremium() ); ?>'
+	<?php echo get_block_wrapper_attributes(); ?>
+	id='<?php echo esc_attr( $btnbId ); ?>'
+	<?php
+		$btnbAttributes = $attributes;
+		if ( isset( $btnbAttributes['securityPassword'] ) ) {
+			unset( $btnbAttributes['securityPassword'] );
+		}
+	?>
+	data-attributes='<?php echo esc_attr( wp_json_encode( $btnbAttributes ?? [] ) ); ?>'
 ></div>

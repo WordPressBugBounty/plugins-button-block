@@ -1,9 +1,10 @@
 {
-  "apiVersion": 2,
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
   "name": "btn/button",
   "title": "Button",
   "description": "Implement multi-functional button.",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "category": "widgets",
   "keywords": [
     "multi-functional button",
@@ -19,7 +20,7 @@
     },
     "cPostId": {
       "type": "number",
-      "default": ""
+      "default": 0
     },
     "text": {
       "type": "string",
@@ -210,8 +211,5 @@
   ],
   "style": "file:./view.css",
   "render": "file:./render.php",
-  "viewScript": [
-    "file:./view.js",
-    "wp-util"
-  ]
+  "viewScript": "file:./view.js"
 }

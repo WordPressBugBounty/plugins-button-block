@@ -2,10 +2,10 @@
 Contributors: bplugins, abuhayat, charlescormier, freemius
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, multi-functional button, download button, link button, Gutenberg block
-Requires at least: 6.2+
-Tested up to: 6.9
-Stable tag: 1.2.4
-Requires PHP: 7.1
+Requires at least: 6.5
+Tested up to: 7.0
+Stable tag: 1.2.5
+Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -151,6 +151,10 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
+= 1.2.5 - 10 Jun 2026 =
+* **Update:** SDK
+* **Update:** Performance Improvement
+
 = 1.2.4 - 04 Mar 2026 =
 * **Update:** Admin Dashboard - Improved UI with better navigation and clearer feature organization.
 
@@ -216,7 +220,43 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 * Upload custom icon feature
 
 = 1.0.1 =
-* Add translate feature
+* Add translate feature.
 
 = 1.0.0 =
 * Initial Release.
+
+
+== Third-Party Libraries ==
+
+This plugin bundles the following third-party JavaScript/PHP/CSS libraries.
+
+= Font Awesome 7 =
+* **Source:** https://fontawesome.com/
+* **GitHub:** https://github.com/FortAwesome/Font-Awesome
+* **License:** MIT (for code), SIL OFL 1.1 (for fonts), CC BY 4.0 (for icons)
+* **Purpose:** Provides vector icons library for styling buttons.
+
+= AOS (Animate on Scroll) =
+* **Source:** https://michalsnik.github.io/aos/
+* **GitHub:** https://github.com/michalsnik/aos
+* **License:** MIT – https://github.com/michalsnik/aos/blob/master/LICENSE
+* **Purpose:** Provides scroll-driven entry animations for button block elements.
+
+= Freemius Lite SDK =
+* **Source:** [https://bplugins.com/](https://bplugins.com/)
+* **GitHub:** [https://github.com/bPlugins/freemius-lite-sdk](https://github.com/bPlugins/freemius-lite-sdk)
+* **License:** GPL-2.0-or-later – [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)
+* **Purpose:** Provides an opt-in consent form for usage tracking and analytics to help improve the plugin. No data is sent before explicit user consent.
+* **External Services:** Communicates with `api.bplugins.com` (activation events) and `wp.freemius.com` (opt-in processing) only after user opt-in. See [bPlugins Privacy Policy](https://bplugins.com/privacy-policy) and [Freemius Privacy Policy](https://freemius.com/privacy/).
+
+= Freemius SDK =
+* **Source:** [https://freemius.com/](https://freemius.com/)
+* **GitHub:** [https://github.com/Freemius/wordpress-sdk](https://github.com/Freemius/wordpress-sdk)
+* **License:** GPLv3 – [https://github.com/Freemius/wordpress-sdk/blob/master/LICENSE.txt](https://github.com/Freemius/wordpress-sdk/blob/master/LICENSE.txt)
+* **Purpose:** Provides opt-in usage tracking and analytics to help improve the plugin.
+
+= bpl-tools =
+* Source / GitHub: https://github.com/bPlugins/bpl-tools
+* License: GPL-2.0-or-later – https://www.gnu.org/licenses/gpl-2.0.html
+* Purpose: Shared utility library providing admin dashboard components and common Gutenberg editor controls.
+* External Services: The library may connect to bPlugins, WordPress.org, and Freemius services for product data and checkout functionality. See full details: https://github.com/bPlugins/bpl-tools#external-requests--why-they-are-made

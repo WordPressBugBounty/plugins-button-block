@@ -1,11 +1,21 @@
 <?php
-namespace BTN\Admin;
+namespace BTNB\Admin;
 
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
+/**
+ * CPT class
+ * Handles the 'button-block' custom post type registration, shortcode, and admin features.
+ *
+ * @package BTN\Admin
+ */
 class CPT{
 	public $post_type = 'button-block';
 
+	/**
+	 * Constructor.
+	 * Registers hooks for CPT, shortcode, admin columns, and row actions.
+	 */
 	public function __construct(){
 		add_action( 'admin_enqueue_scripts', [$this, 'adminEnqueueScripts'] );
 		add_action( 'init', [$this, 'onInit'] );
@@ -17,14 +27,25 @@ class CPT{
 		add_action( 'admin_action_btnDuplicatePost', [$this, 'duplicatePost'] );
 	}
 
+	/**
+	 * Enqueues admin styles and scripts for the post list and edit screens.
+	 *
+	 * @param string $hook The current admin page hook suffix.
+	 * @return void
+	 */
 	function adminEnqueueScripts( $hook ){
 		if( 'edit.php' === $hook || 'post.php' === $hook ){
-			wp_enqueue_style( 'btn-admin-post', BTN_DIR_URL . 'build/admin/post.css', [], BTN_VERSION );
-			wp_enqueue_script( 'btn-admin-post', BTN_DIR_URL . 'build/admin/post.js', [], BTN_VERSION, true );
-			wp_set_script_translations( 'btn-admin-post', 'button-block', BTN_DIR_PATH . 'languages' );
+			wp_enqueue_style( 'btn-admin-post', BTNB_DIR_URL . 'build/admin/post.css', [], BTNB_VERSION );
+			wp_enqueue_script( 'btn-admin-post', BTNB_DIR_URL . 'build/admin/post.js', [], BTNB_VERSION, true );
+			wp_set_script_translations( 'btn-admin-post', 'button-block', BTNB_DIR_PATH . 'languages' );
 		}
 	}
 
+	/**
+	 * Registers the 'button-block' custom post type on init.
+	 *
+	 * @return void
+	 */
 	function onInit(){
 		$menuIcon = "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 48 48' fill='#fff'><path d='M7 34Q5.75 34 4.875 33.125Q4 32.25 4 31V17Q4 15.75 4.875 14.875Q5.75 14 7 14H41Q42.25 14 43.125 14.875Q44 15.75 44 17V31Q44 32.25 43.125 33.125Q42.25 34 41 34H37.8V31H41Q41 31 41 31Q41 31 41 31V17Q41 17 41 17Q41 17 41 17H7Q7 17 7 17Q7 17 7 17V31Q7 31 7 31Q7 31 7 31H20.2V34ZM29 38 27.2 34 23.2 32.2 27.2 30.4 29 26.4 30.8 30.4 34.8 32.2 30.8 34ZM34 27.4 32.95 25.05 30.6 24 32.95 22.95 34 20.6 35.05 22.95 37.4 24 35.05 25.05Z'></path></svg>";
 
@@ -57,8 +78,20 @@ class CPT{
 		]); // Register Post Type
 	}
 
+	/**
+	 * Handles the [btn_block] shortcode output.
+	 *
+	 * Renders the button block content based on post status and user capabilities.
+	 *
+	 * @param array $atts Shortcode attributes. Accepts 'id' (int) for the post ID.
+	 * @return string The rendered block HTML or empty string.
+	 */
 	function onAddShortcode( $atts ) {
-		$post_id = $atts['id'];
+		$atts = shortcode_atts( [ 'id' => 0 ], $atts, 'btn_block' );
+		$post_id = absint( $atts['id'] );
+		if ( ! $post_id ) {
+			return '';
+		}
 		$post = get_post( $post_id );
 
 		if ( !$post ) {
@@ -92,6 +125,12 @@ class CPT{
 		}
 	}
 
+	/**
+	 * Renders the first block from a post's content through wp_kses.
+	 *
+	 * @param \WP_Post $post The post object to render.
+	 * @return string The sanitized rendered block HTML.
+	 */
 	function displayContent( $post ){
 		$blocks = parse_blocks( $post->post_content );
 
@@ -101,22 +140,42 @@ class CPT{
 		return wp_kses( render_block( $blocks[0] ), $allowed_html );
 	}
 
+	/**
+	 * Adds the 'ShortCode' column to the button-block post list table.
+	 *
+	 * @param array $defaults The existing column headers.
+	 * @return array Modified column headers.
+	 */
 	function manageBTNPostsColumns( $defaults ) {
 		unset( $defaults['date'] );
-		$defaults['shortcode'] = 'ShortCode';
-		$defaults['date'] = 'Date';
+		$defaults['shortcode'] = __( 'ShortCode', 'button-block' );
+		$defaults['date'] = __( 'Date', 'button-block' );
 		return $defaults;
 	}
 
+	/**
+	 * Renders the content for the custom 'ShortCode' column.
+	 *
+	 * @param string $column_name The column slug.
+	 * @param int    $post_ID     The current post ID.
+	 * @return void
+	 */
 	function manageBTNPostsCustomColumns( $column_name, $post_ID ) {
-		if ( $column_name == 'shortcode' ) {
+		if ( 'shortcode' === $column_name ) {
 			echo '<div class="bPlAdminShortcode" id="bPlAdminShortcode-' . esc_attr( $post_ID ) . '">
 				<input value="[btn_block id=' . esc_attr( $post_ID ) . ']" onclick="copyBPlAdminShortcode(\'' . esc_attr( $post_ID ) . '\')">
-				<span class="tooltip">' . esc_html__( 'Copy To Clipboard' ) . '</span>
+				<span class="tooltip">' . esc_html__( 'Copy To Clipboard', 'button-block' ) . '</span>
 			</div>';
 		}
 	}
 
+	/**
+	 * Forces the block editor for button-block post type.
+	 *
+	 * @param bool     $use  Whether to use the block editor.
+	 * @param \WP_Post $post The post object.
+	 * @return bool True for button-block posts, original value otherwise.
+	 */
 	function useBlockEditorForPost($use, $post){
 		if ( $this->post_type === $post->post_type ) {
 			return true;
@@ -124,14 +183,28 @@ class CPT{
 		return $use;
 	}
 
+	/**
+	 * Adds a 'Duplicate' action link to the post row actions for button-block posts.
+	 *
+	 * @param array    $actions The existing row actions.
+	 * @param \WP_Post $post    The current post object.
+	 * @return array Modified row actions.
+	 */
 	function postRowActions( $actions, $post ){
-		if ( $post->post_type == $this->post_type ) {
-			$actions['duplicate'] = '<a href="' . admin_url( "admin.php?action=btnDuplicatePost&_wpnonce=" . wp_create_nonce( 'btnDuplicatePost' ) . "&post={$post->ID}" ) . '">Duplicate</a>';
+		if ( $this->post_type === $post->post_type ) {
+			$actions['duplicate'] = '<a href="' . admin_url( "admin.php?action=btnDuplicatePost&_wpnonce=" . wp_create_nonce( 'btnDuplicatePost' ) . "&post={$post->ID}" ) . '">' . esc_html__( 'Duplicate', 'button-block' ) . '</a>';
 		}
 
 		return $actions;
 	} // Duplicate Button Post Action
 
+	/**
+	 * Handles the post duplication admin action.
+	 *
+	 * Verifies nonce and capabilities, then creates a copy of the post and redirects to the editor.
+	 *
+	 * @return void Redirects on success, dies on failure.
+	 */
 	function duplicatePost(){
 		if (
 			!wp_verify_nonce(
@@ -146,15 +219,15 @@ class CPT{
 			wp_send_json_error( 'Permission Denied' );
 		}
 
-		$postId = sanitize_text_field( wp_unslash( $_GET['post'] ) );
+		$postId = absint( wp_unslash( $_GET['post'] ) );
 		$post = get_post( $postId );
 
 		if ( !$post ) {
-			wp_die( 'Invalid post ID' );
+			wp_die( esc_html__( 'Invalid post ID', 'button-block' ) );
 		}
 
 		if ( $post && !current_user_can( 'edit_post', $postId ) ) {
-			wp_die( 'You do not have permission to duplicate this post.' );
+			wp_die( esc_html__( 'You do not have permission to duplicate this post.', 'button-block' ) );
 		}
 
 		$newPost = [
@@ -165,7 +238,7 @@ class CPT{
 		];
 
 		$newPostId = wp_insert_post( $newPost );
-		wp_redirect( admin_url( "post.php?action=edit&post={$newPostId}" ) );
+		wp_safe_redirect( admin_url( "post.php?action=edit&post={$newPostId}" ) );
 		exit;
 	} // Duplicate Button Post
 }
