@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
- * Version: 1.2.5
+ * Version: 1.2.6
  * Author: bPlugins
  * Author URI: http://bplugins.com
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain: button-block
  * Requires at least: 6.5
- * Tested up to: 7.0
+ * Tested up to: 7.1
  * Requires PHP: 7.4
  */
 
@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 if ( function_exists( 'btnb_fs' ) ) {
 	btnb_fs()->set_basename( true, __FILE__ );
 }else{
-	define( 'BTNB_VERSION', ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? time() : '1.2.5' );
+	define( 'BTNB_VERSION', ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? time() : '1.2.6' );
 	define( 'BTNB_DIR_URL', plugin_dir_url( __FILE__ ) );
 	define( 'BTNB_DIR_PATH', plugin_dir_path( __FILE__ ) );
 	define( 'BTNB_HAS_PRO', false );
@@ -57,9 +57,9 @@ if ( function_exists( 'btnb_fs' ) ) {
 			/**
 			 * Filters the default post title for new pages created via the dashboard "Start Now" link.
 			 *
-			 * @param string   $title The default post title.
-			 * @param \WP_Post $post  The post object.
-			 * @return string The filtered post title.
+			 * @param string	$title	The default post title.
+			 * @param \WP_Post	$post	The post object.
+			 * @return string	The filtered post title.
 			 */
 			function defaultTitle( $title, $post ) {
 				if ( 'page' === $post->post_type && isset( $_GET['title'] ) ) {
@@ -75,9 +75,9 @@ if ( function_exists( 'btnb_fs' ) ) {
 			/**
 			 * Filters the default post content for new pages created via the dashboard "Start Now" link.
 			 *
-			 * @param string   $content The default post content.
-			 * @param \WP_Post $post    The post object.
-			 * @return string The filtered post content.
+			 * @param string	$content	The default post content.
+			 * @param \WP_Post	$post		The post object.
+			 * @return string	The filtered post content.
 			 */
 			function defaultContent( $content, $post ) {
 				if ( 'page' === $post->post_type && isset( $_GET['content'] ) ) {
@@ -93,9 +93,9 @@ if ( function_exists( 'btnb_fs' ) ) {
 			/**
 			 * Adds custom action links to the plugin entry on the Plugins page.
 			 *
-			 * @param array  $links The existing action links.
-			 * @param string $file  The plugin file path.
-			 * @return array Modified action links.
+			 * @param array		$links	The existing action links.
+			 * @param string	$file	The plugin file path.
+			 * @return array	Modified action links.
 			 */
 			function pluginActionLinks( $links, $file ) {
 				if( plugin_basename( __FILE__ ) === $file ) {
@@ -114,6 +114,10 @@ if ( function_exists( 'btnb_fs' ) ) {
 			 */
 			function onInit() {
 				register_block_type( __DIR__ . '/build' );
+
+				// Core registers block.json scripts without a path, so local JSONs need this explicitly
+				wp_set_script_translations( 'btn-button-editor-script', 'button-block', BTNB_DIR_PATH . 'languages' );
+				wp_set_script_translations( 'btn-button-view-script', 'button-block', BTNB_DIR_PATH . 'languages' );
 			}
 
 			/**

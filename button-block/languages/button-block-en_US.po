@@ -2,17 +2,602 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Button Block 1.2.5\n"
+"Project-Id-Version: Button Block 1.2.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/button-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-09T11:04:38+00:00\n"
+"POT-Creation-Date: 2026-09-08T06:35:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: button-block\n"
+
+#: build/index.js:1
+msgid "Image"
+msgstr ""
+
+#: build/index.js:1
+msgid "Video"
+msgstr ""
+
+#: build/index.js:1
+msgid "Type:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Help"
+msgstr ""
+
+#: build/index.js:1
+msgid "Shadow:"
+msgstr ""
+
+#: build/index.js:1
+msgid "None"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/post.js:1
+msgid "Copied Successfully!"
+msgstr ""
+
+#: build/index.js:1
+#: includes/admin/CPT.php:167
+#: build/admin/post.js:1
+msgid "Copy To Clipboard"
+msgstr ""
+
+#: build/index.js:1
+msgid "Flip Right"
+msgstr ""
+
+#: build/index.js:1
+msgid "Flip Up"
+msgstr ""
+
+#: build/index.js:1
+msgid "Flip Down"
+msgstr ""
+
+#: build/index.js:1
+msgid "Zoom In"
+msgstr ""
+
+#: build/index.js:1
+msgid "Zoom In Up"
+msgstr ""
+
+#: build/index.js:1
+msgid "Zoom In Down"
+msgstr ""
+
+#: build/index.js:1
+msgid "Zoom In Left"
+msgstr ""
+
+#: build/index.js:1
+msgid "Zoom In Right"
+msgstr ""
+
+#: build/index.js:1
+msgid "Fade Up"
+msgstr ""
+
+#: build/index.js:1
+msgid "Fade Down"
+msgstr ""
+
+#: build/index.js:1
+msgid "Fade Left"
+msgstr ""
+
+#: build/index.js:1
+msgid "Fade Right"
+msgstr ""
+
+#: build/index.js:1
+msgid "Flip Left"
+msgstr ""
+
+#: build/index.js:1
+msgid "Button Text"
+msgstr ""
+
+#: build/index.js:1
+msgid "Button Type:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Animation"
+msgstr ""
+
+#: build/index.js:1
+msgid "Duration (Speed) (s):"
+msgstr ""
+
+#: build/index.js:1
+msgid "Animation duration of speed in seconds"
+msgstr ""
+
+#: build/index.js:1
+msgid "Additional"
+msgstr ""
+
+#: build/index.js:1
+msgid "ID:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Enter additional ID"
+msgstr ""
+
+#: build/index.js:1
+msgid "CSS:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Enter additional CSS"
+msgstr ""
+
+#: build/index.js:1
+msgid "Popup Options"
+msgstr ""
+
+#: build/index.js:1
+msgid "Enable dynamic popup content: show image, audio, video, custom blocks, documents, and iframes on button click."
+msgstr ""
+
+#: build/index.js:1
+msgid "Button"
+msgstr ""
+
+#: build/index.js:1
+msgid "Hover Colors:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Padding:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Button Alignment"
+msgstr ""
+
+#: build/index.js:1
+msgid "Button in left"
+msgstr ""
+
+#: build/index.js:1
+msgid "Button in center"
+msgstr ""
+
+#: build/index.js:1
+msgid "Button in right"
+msgstr ""
+
+#: build/index.js:1
+msgid "Text:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Action:"
+msgstr ""
+
+#: build/index.js:1
+msgid "URL:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Open link in new tab"
+msgstr ""
+
+#: build/index.js:1
+msgid "Download Button"
+msgstr ""
+
+#: build/index.js:1
+msgid "Make sure the URL/link is downloadable!"
+msgstr ""
+
+#: build/index.js:1
+msgid "This is an experimental feature, and it may not work reliably every time."
+msgstr ""
+
+#: build/index.js:1
+msgid "Unlock popup action, security settings (password, email, role-based protection), custom link relation, referrer policy, and custom download file name with Premium version."
+msgstr ""
+
+#: build/index.js:1
+msgid "Elements"
+msgstr ""
+
+#: build/index.js:1
+msgid "Upload Icon?"
+msgstr ""
+
+#: build/index.js:1
+msgid "Enter Icon URL"
+msgstr ""
+
+#: build/index.js:1
+msgid "Select Icon"
+msgstr ""
+
+#: build/index.js:1
+msgid "Tooltip Text:"
+msgstr ""
+
+#: build/index.js:1
+msgid "If you want to add tooltip on button, type text rather then leave empty."
+msgstr ""
+
+#: build/index.js:1
+msgid "Unlock icon position, tooltip position, and device-specific visibility settings with Premium version."
+msgstr ""
+
+#: build/index.js:1
+msgid "Design"
+msgstr ""
+
+#: build/index.js:1
+msgid "Button Full Width?"
+msgstr ""
+
+#: build/index.js:1
+msgid "Button Size:"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Paste Anywhere"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Paste the copied shortcode (e.g. <code>[btn_block id=123]</code>) into any post, page, widget area, or layout using the <strong>Shortcode</strong> block."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Go to <strong>Button Block &rsaquo; Add New</strong>, design your button, and publish it. Copy the shortcode <code>[btn_block id=YOUR_ID]</code> from the list table."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Add Shortcode Widget"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Open the Elementor editor on any page. Search for the <strong>Shortcode</strong> widget and drag it to your desired section/column."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Enter & Preview"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Paste your shortcode (e.g. <code>[btn_block id=123]</code>) into the Shortcode input box to preview the stylized button live on the canvas."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Create a Button Post"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Go to <strong>Button Block &rsaquo; Add New</strong>, customize your button, and copy the shortcode <code>[btn_block id=YOUR_ID]</code> from the post list."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Button Block Generator"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Open Theme File"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Open the PHP template file in your theme where you want the button to appear (e.g. <code>header.php</code>, <code>footer.php</code>, <code>single.php</code>, or custom template files)."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Render via do_shortcode"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Add <code>&lt;?php echo do_shortcode('[btn_block id=YOUR_ID]'); ?&gt;</code> (replace <em>YOUR_ID</em> with the actual post ID) to render the button."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Popup with image, video, docs, or blocks."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Protect a button by password, email, or role."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Collect and browse captured email leads."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Set a custom file name for the download."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Add rel and referrer policy attributes."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Place the icon and tooltip on any side."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Hide the button on desktop, tablet, or mobile."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "All shortcode posts (button-block post type)"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Plugin settings"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Add the Button Block"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Open the block editor on any post or page. Click the <strong>+</strong> icon in the top-left corner or type <strong>/Button Block</strong> to find and insert the Button Block."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Open Editor"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Customize Style"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Use the block settings in the sidebar to style your button. You can choose layouts, customize alignment, add hover effects, set typography, adjust border-radius, background, and text colors."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Configure Button Action"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Configure what happens when a user clicks the button. Set the link URL, choose whether it opens a popup (Pro), triggers a file download (Pro), or set custom rel attributes and referrer policies."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Style & Publish"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Use the design controls to customize hover states, custom shadows, and animations. When satisfied, publish or update the page."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Open Button Block Generator"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Go to <strong>Button Block &rsaquo; Add New</strong> (or the Button Block CPT list) in your WordPress admin menu to create a reusable button."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Configure the Block"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "In the editor, design and customize your button using the block options in the sidebar. Give it a title for easy reference and publish it."
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "Copy the Shortcode"
+msgstr ""
+
+#: build/index.js:1
+#: build/admin/dashboard.js:1
+msgid "After publishing, go to the <strong>Button Block</strong> list table. You will see a <strong>ShortCode</strong> column displaying <code>[btn_block id=POST_ID]</code>. Click it to copy to your clipboard."
+msgstr ""
+
+#: build/index.js:1
+msgid "Login Protected"
+msgstr ""
+
+#: build/index.js:1
+msgid "Alternate"
+msgstr ""
+
+#: build/index.js:1
+msgid "Author"
+msgstr ""
+
+#: build/index.js:1
+msgid "Bookmark"
+msgstr ""
+
+#: build/index.js:1
+msgid "External"
+msgstr ""
+
+#: build/index.js:1
+msgid "License"
+msgstr ""
+
+#: build/index.js:1
+msgid "Next"
+msgstr ""
+
+#: build/index.js:1
+msgid "No Follow"
+msgstr ""
+
+#: build/index.js:1
+msgid "No Opener"
+msgstr ""
+
+#: build/index.js:1
+msgid "Prev"
+msgstr ""
+
+#: build/index.js:1
+msgid "Search"
+msgstr ""
+
+#: build/index.js:1
+msgid "Tag"
+msgstr ""
+
+#: build/index.js:1
+msgid "No Referrer"
+msgstr ""
+
+#: build/index.js:1
+msgid "No Referrer When Downgrade"
+msgstr ""
+
+#: build/index.js:1
+msgid "Origin"
+msgstr ""
+
+#: build/index.js:1
+msgid "Origin When Cross Origin"
+msgstr ""
+
+#: build/index.js:1
+msgid "Same Origin"
+msgstr ""
+
+#: build/index.js:1
+msgid "Strict Origin When Cross Origin"
+msgstr ""
+
+#: build/index.js:1
+msgid "Unsafe Url"
+msgstr ""
+
+#: build/index.js:1
+msgid "Link"
+msgstr ""
+
+#: build/index.js:1
+msgid "Top"
+msgstr ""
+
+#: build/index.js:1
+msgid "Bottom"
+msgstr ""
+
+#: build/index.js:1
+msgid "Left"
+msgstr ""
+
+#: build/index.js:1
+msgid "Right"
+msgstr ""
+
+#: build/index.js:1
+msgid "Flat"
+msgstr ""
+
+#: build/index.js:1
+msgid "3D"
+msgstr ""
+
+#: build/index.js:1
+msgid "Small"
+msgstr ""
+
+#: build/index.js:1
+msgid "Medium"
+msgstr ""
+
+#: build/index.js:1
+msgid "Large"
+msgstr ""
+
+#: build/index.js:1
+msgid "X Large"
+msgstr ""
+
+#: build/index.js:1
+msgid "Fade"
+msgstr ""
+
+#: build/index.js:1
+msgid "Password Protected"
+msgstr ""
+
+#: build/index.js:1
+msgid "Audio"
+msgstr ""
+
+#: build/index.js:1
+msgid "Content"
+msgstr ""
+
+#: build/index.js:1
+msgid "Document"
+msgstr ""
+
+#: build/index.js:1
+msgid "Iframe"
+msgstr ""
+
+#: build/index.js:1
+msgid "Email"
+msgstr ""
+
+#: build/index.js:1
+msgid "General"
+msgstr ""
+
+#: build/index.js:1
+msgid "Popup"
+msgstr ""
+
+#: build/index.js:1
+msgid "Style"
+msgstr ""
 
 #. Plugin Name of the plugin
 #: index.php
@@ -82,11 +667,6 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: includes/admin/CPT.php:167
-#: build/admin/post.js:1
-msgid "Copy To Clipboard"
-msgstr ""
-
 #: includes/admin/CPT.php:195
 msgid "Duplicate"
 msgstr ""
@@ -113,154 +693,6 @@ msgstr ""
 
 #: includes/Options.php:68
 msgid "Plugin data will be preserved when uninstalled."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Add the Button Block"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Open the block editor on any post or page. Click the <strong>+</strong> icon in the top-left corner or type <strong>/Button Block</strong> to find and insert the Button Block."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Open Editor"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Customize Style"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Use the block settings in the sidebar to style your button. You can choose layouts, customize alignment, add hover effects, set typography, adjust border-radius, background, and text colors."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Configure Button Action"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Configure what happens when a user clicks the button. Set the link URL, choose whether it opens a popup (Pro), triggers a file download (Pro), or set custom rel attributes and referrer policies."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Style & Publish"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Use the design controls to customize hover states, custom shadows, and animations. When satisfied, publish or update the page."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Open Button Block Generator"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Go to <strong>Button Block &rsaquo; Add New</strong> (or the Button Block CPT list) in your WordPress admin menu to create a reusable button."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Button Block Generator"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Configure the Block"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "In the editor, design and customize your button using the block options in the sidebar. Give it a title for easy reference and publish it."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Copy the Shortcode"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "After publishing, go to the <strong>Button Block</strong> list table. You will see a <strong>ShortCode</strong> column displaying <code>[btn_block id=POST_ID]</code>. Click it to copy to your clipboard."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Paste Anywhere"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Paste the copied shortcode (e.g. <code>[btn_block id=123]</code>) into any post, page, widget area, or layout using the <strong>Shortcode</strong> block."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Create a Button Post"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Go to <strong>Button Block &rsaquo; Add New</strong>, design your button, and publish it. Copy the shortcode <code>[btn_block id=YOUR_ID]</code> from the list table."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Add Shortcode Widget"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Open the Elementor editor on any page. Search for the <strong>Shortcode</strong> widget and drag it to your desired section/column."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Enter & Preview"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Paste your shortcode (e.g. <code>[btn_block id=123]</code>) into the Shortcode input box to preview the stylized button live on the canvas."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Go to <strong>Button Block &rsaquo; Add New</strong>, customize your button, and copy the shortcode <code>[btn_block id=YOUR_ID]</code> from the post list."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Open Theme File"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Open the PHP template file in your theme where you want the button to appear (e.g. <code>header.php</code>, <code>footer.php</code>, <code>single.php</code>, or custom template files)."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Render via do_shortcode"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Add <code>&lt;?php echo do_shortcode('[btn_block id=YOUR_ID]'); ?&gt;</code> (replace <em>YOUR_ID</em> with the actual post ID) to render the button."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Use button as link or popup trigger."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Add rel attribute to the anchor link."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Add referrer policy to the anchor link."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Enable file download on button click."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Unlock advanced styling and layout options."
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "All shortcode posts (button-block post type)"
-msgstr ""
-
-#: build/admin/dashboard.js:1
-msgid "Plugin settings"
-msgstr ""
-
-#: build/admin/post.js:1
-msgid "Copied Successfully!"
 msgstr ""
 
 #: build/block.json
