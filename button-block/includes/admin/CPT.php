@@ -212,11 +212,11 @@ class CPT{
 				'btnDuplicatePost'
 			)
 		) {
-			wp_send_json_error( 'Invalid Request' );
+			wp_die( esc_html__( 'Invalid request.', 'button-block' ) );
 		}
 
 		if ( !isset( $_GET['post'] ) || !current_user_can( 'edit_posts') ) {
-			wp_send_json_error( 'Permission Denied' );
+			wp_die( esc_html__( 'Permission denied.', 'button-block' ) );
 		}
 
 		$postId = absint( wp_unslash( $_GET['post'] ) );
@@ -231,7 +231,8 @@ class CPT{
 		}
 
 		$newPost = [
-			'post_title' => $post->post_title . '(copy)',
+			/* translators: %s: Title of the post being duplicated. */
+			'post_title' => sprintf( __( '%s (copy)', 'button-block' ), $post->post_title ),
 			'post_content' => $post->post_content,
 			'post_status' => $post->post_status,
 			'post_type' => $post->post_type,

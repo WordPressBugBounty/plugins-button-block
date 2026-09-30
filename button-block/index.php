@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
- * Version: 1.2.6
+ * Version: 1.2.7
  * Author: bPlugins
- * Author URI: http://bplugins.com
+ * Author URI: https://bplugins.com/
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain: button-block
@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 if ( function_exists( 'btnb_fs' ) ) {
 	btnb_fs()->set_basename( true, __FILE__ );
 }else{
-	define( 'BTNB_VERSION', ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? time() : '1.2.6' );
+	define( 'BTNB_VERSION', ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? time() : '1.2.7' );
 	define( 'BTNB_DIR_URL', plugin_dir_url( __FILE__ ) );
 	define( 'BTNB_DIR_PATH', plugin_dir_path( __FILE__ ) );
 	define( 'BTNB_HAS_PRO', false );
@@ -176,7 +176,7 @@ if ( function_exists( 'btnb_fs' ) ) {
 					data-info='<?php echo esc_attr( wp_json_encode( [
 						'version' => BTNB_VERSION,
 						'adminUrl' => admin_url(),
-						'startUrl' => admin_url( 'post-new.php?post_type=page&title=' . rawurlencode( 'Button Block' ) . '&content=' . rawurlencode( '<!-- wp:btn/button /-->' ) . '&nonce=' . wp_create_nonce( 'btnCreatePage' ) ),
+						'startUrl' => admin_url( 'post-new.php?post_type=page&title=' . rawurlencode( __( 'Button Block', 'button-block' ) ) . '&content=' . rawurlencode( '<!-- wp:btn/button /-->' ) . '&nonce=' . wp_create_nonce( 'btnCreatePage' ) ),
 						'licenseActiveNonce' => wp_create_nonce( 'bPlLicenseActivation' ),
 						'deleteDataOnUninstall' => (bool) \BTNB\Options::getOptions()['delete_data_on_uninstall'],
 						'uninstallNonce' => wp_create_nonce( 'btnSaveUninstallOption' )

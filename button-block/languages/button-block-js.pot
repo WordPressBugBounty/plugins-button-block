@@ -4,6 +4,14 @@ msgstr ""
 "X-Generator: babel-plugin-makepot\n"
 
 #: build/index.js:1
+msgid "Pricing"
+msgstr ""
+
+#: build/index.js:1
+msgid "Settings"
+msgstr ""
+
+#: build/index.js:1
 msgid "Image"
 msgstr ""
 
@@ -21,6 +29,10 @@ msgstr ""
 
 #: build/index.js:1
 msgid "Shadow:"
+msgstr ""
+
+#: build/index.js:1
+msgid "Default"
 msgstr ""
 
 #: build/index.js:1
@@ -194,6 +206,10 @@ msgid "This is an experimental feature, and it may not work reliably every time.
 msgstr ""
 
 #: build/index.js:1
+msgid "Source"
+msgstr ""
+
+#: build/index.js:1
 msgid ""
 "Unlock popup action, security settings (password, email, role-based "
 "protection), custom link relation, referrer policy, and custom download "
@@ -243,6 +259,18 @@ msgid "Button Size:"
 msgstr ""
 
 #: build/index.js:1
+msgid "Feature Comparison"
+msgstr ""
+
+#: build/index.js:1
+msgid "Welcome"
+msgstr ""
+
+#: build/index.js:1
+msgid "Demos"
+msgstr ""
+
+#: build/index.js:1
 msgid "Paste Anywhere"
 msgstr ""
 
@@ -254,10 +282,21 @@ msgid ""
 msgstr ""
 
 #: build/index.js:1
+msgid "Design Stylish, Interactive, and Multi-Functional Buttons"
+msgstr ""
+
+#: build/index.js:1
 msgid ""
 "Go to <strong>Button Block &rsaquo; Add New</strong>, design your button, "
 "and publish it. Copy the shortcode <code>[btn_block id=YOUR_ID]</code> from "
 "the list table."
+msgstr ""
+
+#: build/index.js:1
+msgid ""
+"Get multi-functional buttons. The Button Block plugin comes up with many "
+"useful styling options that make you happy to build responsive, "
+"interactive, stylish buttons in a few clicks."
 msgstr ""
 
 #: build/index.js:1
@@ -279,6 +318,10 @@ msgstr ""
 msgid ""
 "Paste your shortcode (e.g. <code>[btn_block id=123]</code>) into the "
 "Shortcode input box to preview the stylized button live on the canvas."
+msgstr ""
+
+#: build/index.js:1
+msgid "Theme / PHP"
 msgstr ""
 
 #: build/index.js:1
@@ -319,6 +362,10 @@ msgid ""
 msgstr ""
 
 #: build/index.js:1
+msgid "View More Changelogs"
+msgstr ""
+
+#: build/index.js:1
 msgid "Popup with image, video, docs, or blocks."
 msgstr ""
 
@@ -347,11 +394,55 @@ msgid "Hide the button on desktop, tablet, or mobile."
 msgstr ""
 
 #: build/index.js:1
+msgid "See All Demos"
+msgstr ""
+
+#: build/index.js:1
+msgid "Tooltip"
+msgstr ""
+
+#: build/index.js:1
+msgid "Icon"
+msgstr ""
+
+#: build/index.js:1
+msgid "Customize"
+msgstr ""
+
+#: build/index.js:1
+msgid "Animations"
+msgstr ""
+
+#: build/index.js:1
+msgid "Popup"
+msgstr ""
+
+#: build/index.js:1
+msgid "Buy Now ➜"
+msgstr ""
+
+#: build/index.js:1
+msgid "Best Value"
+msgstr ""
+
+#: build/index.js:1
 msgid "All shortcode posts (button-block post type)"
 msgstr ""
 
 #: build/index.js:1
 msgid "Plugin settings"
+msgstr ""
+
+#: build/index.js:1
+msgid "Start Now"
+msgstr ""
+
+#: build/index.js:1
+msgid "Styling"
+msgstr ""
+
+#: build/index.js:1
+msgid "Features"
 msgstr ""
 
 #: build/index.js:1
@@ -399,6 +490,10 @@ msgstr ""
 msgid ""
 "Use the design controls to customize hover states, custom shadows, and "
 "animations. When satisfied, publish or update the page."
+msgstr ""
+
+#: build/index.js:1
+msgid "ShortCode"
 msgstr ""
 
 #: build/index.js:1
@@ -582,10 +677,6 @@ msgstr ""
 
 #: build/index.js:1
 msgid "General"
-msgstr ""
-
-#: build/index.js:1
-msgid "Popup"
 msgstr ""
 
 #: build/index.js:1

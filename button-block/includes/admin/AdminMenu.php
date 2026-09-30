@@ -32,7 +32,7 @@ class AdminMenu {
 
 		add_settings_field(
 			'button_block_option_field',
-			'Hide Button Block from admin Menu',
+			__( 'Hide Button Block from admin Menu', 'button-block' ),
 			[ $this , 'optionCallback' ], 
 			'general'
 		);
@@ -50,7 +50,7 @@ class AdminMenu {
 			<input type='checkbox' id='button_block_option' name='button_block_option' value='true' <?php checked( $value, 'true' ); ?>>
 			<span class='slider round'></span>
 		</label>
-		<p class='description'>Turn this setting on or off.</p>
+		<p class='description'><?php esc_html_e( 'Turn this setting on or off.', 'button-block' ); ?></p>
 	<?php }
 
 	/**
