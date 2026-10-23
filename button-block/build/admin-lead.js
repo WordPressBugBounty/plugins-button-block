@@ -1,1 +1,0 @@
-(()=>{"use strict";document.addEventListener("DOMContentLoaded",(()=>{new DataTable("#btnLeadTable",{select:!0})}))})();
