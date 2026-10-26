@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Button Block
  * Description: Implement multi-functional button
- * Version: 1.2.7
+ * Version: 1.2.8
  * Author: bPlugins
  * Author URI: https://bplugins.com/
  * License: GPLv3
@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; }
 if ( function_exists( 'btnb_fs' ) ) {
 	btnb_fs()->set_basename( true, __FILE__ );
 }else{
-	define( 'BTNB_VERSION', ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? time() : '1.2.7' );
+	define( 'BTNB_VERSION', ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? time() : '1.2.8' );
 	define( 'BTNB_DIR_URL', plugin_dir_url( __FILE__ ) );
 	define( 'BTNB_DIR_PATH', plugin_dir_path( __FILE__ ) );
 	define( 'BTNB_HAS_PRO', false );
@@ -31,6 +31,7 @@ if ( function_exists( 'btnb_fs' ) ) {
 	require_once BTNB_DIR_PATH . 'includes/admin/AdminMenu.php';
 	require_once BTNB_DIR_PATH . 'includes/admin/SubMenu.php';
 	require_once BTNB_DIR_PATH . 'includes/Options.php';
+	require_once BTNB_DIR_PATH . 'includes/Functions.php';
 
 	if( !class_exists( 'BTNBPlugin' ) ){
 		/**

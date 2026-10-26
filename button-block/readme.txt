@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, multi-functional button, download button, link button, Gutenberg block
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 1.2.7
+Stable tag: 1.2.8
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -156,6 +156,14 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Changelog ==
+
+= 1.2.8 - 26 Oct 2026 =
+* **Security:** Fixed a stored XSS where a Contributor could add a custom SVG icon that ran a script for anyone viewing the post (reported by Patchstack). Icons are now sanitized on the server and again in the browser.
+* **Security:** Every button setting, including the text, tooltip, uploaded icon, custom ID, custom CSS, and style values, is now validated on the server before it reaches the page.
+* **Security:** Button settings written into the page are now encoded, so saved HTML entities can no longer turn back into live markup in the browser.
+* **Fix:** The admin dashboard script no longer throws an error when the Freemius opt-in or license screen is shown in its place.
+* **Fix:** The icon picker, color, typography, and other shared editor controls could not be translated.
+* **Update:** The editor loads faster. The icon picker's icon sets now load the first time it is opened instead of with every editor page.
 
 = 1.2.7 - 30 Sep 2026 =
 * **Fix:** The "Hide Button Block from admin Menu" setting, some editor controls, and the admin dashboard could not be translated.
